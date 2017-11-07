@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { PostList, PostDetail } from './components/Post'
-
+import { PostList, PostDetail } from './components/post'
+import PostListFilter from './containers/PostListFilter'
 import * as RestClientAPI from './services/api/RestClientAdapter'
 
 class App extends Component {
@@ -11,17 +11,7 @@ class App extends Component {
         posts: null
     }
 
-    componentDidMount = () => {
-        console.log("componentDidMount");
-        RestClientAPI.getAll().then((posts) => {
-            this.setState({ posts, isLoading: false });
-            console.log("getAll success: " + JSON.stringify(posts));
-        }).catch((e) => {
-            this.setState({ isLoading: false });
-            console.log(e);
-        });
-    }
-
+    
     render() {
         return (
 
@@ -29,7 +19,7 @@ class App extends Component {
                 <section class="container main-content">
                     <div class="row">
                         <div class="col-md-9">
-                            
+                            <PostListFilter/>
                             {this.state.posts ? <PostDetail post={this.state.posts[0]}/> : null}
                             <div class="tabs-warp question-tab">
                                 <ul class="tabs">

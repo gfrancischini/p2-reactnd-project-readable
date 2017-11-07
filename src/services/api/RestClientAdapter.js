@@ -25,15 +25,18 @@ class RestClientAdapter {
             'Accept': 'application/json',
             'Authorization': token
         }
-        
+
     }
-    
+
 }
 
 
-export const getAll = () =>
-    fetch(`${api}/posts`, { headers })
+export const getAll = () => {
+    console.log("getAll");
+    return fetch(`${api}/posts`, { headers })
         .then(res => res.json())
+}
+
 
 export const getAllCommentsFromPost = (post) =>
     fetch(`${api}/posts/${post.id}/comments`, { headers })
