@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { PostList } from './components/PostList'
-import { PostDetail } from './components/PostDetail'
+import { PostList, PostDetail } from './components/Post'
 
 import * as RestClientAPI from './services/api/RestClientAdapter'
 

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { CommentList } from './CommentList';
-import { CommentAddEdit } from './CommentAddEdit';
+import { CommentList, CommentAddEdit } from '../Comment';
 
-import * as RestClientAPI from '../services/api/RestClientAdapter'
+import * as RestClientAPI from '../../services/api/RestClientAdapter'
 export class PostDetail extends Component {
 
     state = {
