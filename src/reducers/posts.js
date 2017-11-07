@@ -13,6 +13,11 @@ export const posts = (state = INITIAL_STATE, action) => {
                 ...state,
                 itemsById
             } 
+        case "ORDER_POSTS_BY":
+            return {
+                ...state,
+                orderBy : action.orderBy
+            }
         default:
             return state
     }
