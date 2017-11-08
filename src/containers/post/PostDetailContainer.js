@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { getPostById } from '../../reducers/posts'
 import { PostDetail } from '../../components/post'
-import * as RestClientAPI from '../../services/api/RestClientAdapter'
+
+import { CommentAddEdit } from '../../components/comment'
 import { connect } from 'react-redux'
 import { fetchPost } from '../../actions'
 import { withRouter } from 'react-router-dom'
-
+import { CommentSectionContainer} from '../comment'
 class PostDetailContainer extends Component {
 
     componentDidMount = () => {
@@ -13,12 +14,20 @@ class PostDetailContainer extends Component {
     }
 
     render() {
-        return <PostDetail post={this.props.post} />
+        if(this.props.post == null) {
+            return ("Loading");
+        }
+        return (
+        <div>
+            <PostDetail post={this.props.post} />
+            <CommentSectionContainer parentId={this.props.post.id}/>
+            <CommentAddEdit />
+        </div>
+        )
     }
 }
 
 const mapStateToProps = (state, { location, history, match }) => {
-    console.log("match=" + JSON.stringify(match));
     const id = match.params.id;
     const post = getPostById(state, id);
 

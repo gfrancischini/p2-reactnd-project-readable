@@ -22,7 +22,7 @@ class PostListFilter extends Component {
     }
 
     render() {
-        const { posts, sort, location, history } = this.props;
+        const { posts, sort } = this.props;
 
         //TODO move this to a high order component: https://www.robinwieruch.de/gentle-introduction-higher-order-components/ 
         if (!posts) {
@@ -50,7 +50,6 @@ class PostListFilter extends Component {
 const mapStateToProps = (state, {location, history}) => {
     const params = new URLSearchParams(location.search);
     const sort = params.get('sort') ? params.get('sort') : 'Newest';
-    const {posts} = state;
     return {
         posts : getFilteredPosts(state, sort),
         sort,
@@ -59,6 +58,6 @@ const mapStateToProps = (state, {location, history}) => {
     }
 }
 
-export default (connect(mapStateToProps, {
+export default withRouter(connect(mapStateToProps, {
     loadPosts: fetchPosts
 })(PostListFilter))

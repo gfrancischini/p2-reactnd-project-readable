@@ -10,7 +10,6 @@ export class CommentAddEdit extends Component {
     }
 
     handleChange(e) {
-        console.log(e);
         this.setState({ text: e.target.value })
     }
 

@@ -24,5 +24,5 @@ TabItem.propTypes = {
     /**
      * True when the tabbar item is the currently selected item
      */
-    selected: PropTypes.bool.isRequired
+    selected: PropTypes.bool
 }

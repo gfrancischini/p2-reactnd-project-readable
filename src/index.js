@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import { createStore, applyMiddleware, compose  } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from './reducers'
 import thunk from 'redux-thunk';
@@ -22,7 +22,7 @@ const store = createStore(reducer,
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={history}>
+        <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
             <App />
         </Router>
     </Provider>

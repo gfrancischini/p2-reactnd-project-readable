@@ -1,7 +1,6 @@
 
 import React from 'react'
 import PropTypes from 'prop-types';
-import { TabItem } from './TabItem'
 
 /**
  * Tabbar Component. Wraps the children component into a list (ul).
@@ -13,9 +12,6 @@ import { TabItem } from './TabItem'
 export const TabBar = ({ children, selectedId, handleSelectedChange }) => {
 
     const handleClick = (e, newSelectedId) => {
-        console.log(e);
-        console.log(selectedId);
-
         if(newSelectedId !== selectedId) {
             handleSelectedChange(newSelectedId);
         }
@@ -27,7 +23,7 @@ export const TabBar = ({ children, selectedId, handleSelectedChange }) => {
                 {
                     React.cloneElement(child,
                         {
-                            selected: child.props.id == selectedId
+                            selected: child.props.id === selectedId
                         }
                     )
                 }
@@ -47,7 +43,7 @@ export const TabBar = ({ children, selectedId, handleSelectedChange }) => {
 
 
 
-TabItem.propTypes = {
+TabBar.propTypes = {
     /**
      * A array of tabbar item to render.
      * Items should implement the id and selected property

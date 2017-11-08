@@ -8,7 +8,7 @@ export class PostList extends Component {
                 <div className="container-fluid">
 
                     {
-                        this.props.posts.map(post => <PostItem post={post} />)
+                        this.props.posts.map(post => <PostItem key={post.id} post={post} />)
                     }
 
                 </div>

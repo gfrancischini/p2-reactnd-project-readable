@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 export const PostFilter = ({ selectedId, handleSelectedChange }) => (
     <TabBar selectedId={selectedId} handleSelectedChange={handleSelectedChange}>
         {
-            postFilterTabBarItems.map((item) => <TabItem title={item.title} id={item.id} />)
+            postFilterTabBarItems.map((item) => <TabItem title={item.title} id={item.id} key={item.id} />)
         }
     </TabBar>
 )

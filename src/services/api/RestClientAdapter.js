@@ -1,15 +1,16 @@
 
 const api = "http://127.0.0.1:3001"
 
+let token = localStorage.token
+if (!token)
+    token = localStorage.token = Math.random().toString(36).substr(-8)
+
 
 const headers = {
     'Accept': 'application/json',
     'Authorization': token
 }
 
-let token = localStorage.token
-if (!token)
-    token = localStorage.token = Math.random().toString(36).substr(-8)
 
 //TODO make it a rest client adapter
 class RestClientAdapter {
@@ -21,7 +22,7 @@ class RestClientAdapter {
         if (!token)
             token = localStorage.token = Math.random().toString(36).substr(-8)
 
-        const headers = {
+        this.headers = {
             'Accept': 'application/json',
             'Authorization': token
         }
@@ -42,9 +43,11 @@ export const getPost = (postId) =>
 fetch(`${api}/posts/${postId}`, { headers })
   .then(res => res.json())
 
-export const getAllCommentsFromPost = (post) =>
-    fetch(`${api}/posts/${post.id}/comments`, { headers })
+export const getAllCommentsFromPost = (postId) => {
+    console.log("getAllCommentsFromPost="+postId);
+    return fetch(`${api}/posts/${postId}/comments`, { headers })
         .then(res => res.json())
+}
 
 export const addComment = (comment) =>
     fetch(`${api}/comments`, {

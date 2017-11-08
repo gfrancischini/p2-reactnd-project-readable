@@ -52,7 +52,7 @@ export const getFilteredPosts = (state, orderBy) => {
 
     // find the selected tabbar item by id
     const selectedTabBar = postFilterTabBarItems.find(item => {
-        return item.id == orderBy;
+        return item.id === orderBy;
     });
 
     if(selectedTabBar != null) {

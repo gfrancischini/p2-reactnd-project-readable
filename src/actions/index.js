@@ -1,7 +1,6 @@
 import * as RestClientAPI from '../services/api/RestClientAdapter'
 
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
-export const ORDER_POSTS_BY = "ORDER_POSTS_BY";
 
 /**
  * Action dispatched when new posts are received
@@ -28,7 +27,26 @@ export const fetchPost = (id) => dispatch => (
     RestClientAPI.getPost(id).then(post => dispatch(receivePosts([post])))
 )
 
-export const orderPostsBy = orderBy => ({
-    type: ORDER_POSTS_BY,
-    orderBy
-}) 
+
+
+
+/****************************************************************************** */
+
+export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
+
+/**
+ * Action dispatched when new comments are received
+ * @param {*} comments 
+ */
+export const receiveComments = comments => ({
+    type: RECEIVE_COMMENTS,
+    comments
+});
+
+/**
+ * Fetch all comments from a specif post
+ * @param {*} id The id of the post to retrieve comments
+ */
+export const fetchComments = (id) => dispatch => (
+    RestClientAPI.getAllCommentsFromPost(id).then(comments => dispatch(receiveComments(comments)))
+)
