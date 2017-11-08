@@ -38,6 +38,10 @@ export const getAll = () => {
 }
 
 
+export const getPost = (postId) =>
+fetch(`${api}/posts/${postId}`, { headers })
+  .then(res => res.json())
+
 export const getAllCommentsFromPost = (post) =>
     fetch(`${api}/posts/${post.id}/comments`, { headers })
         .then(res => res.json())

@@ -23,6 +23,21 @@ export const posts = (state = INITIAL_STATE, action) => {
     }
 }
 
+export const getPostById = (state, id) => {
+    if(id == null) {
+        return null;
+    }
+
+    //when there is no loaded post we should try to load the specific one
+    if(state.posts.itemsById == null) {
+        return null;
+    }
+
+    
+
+    return state.posts.itemsById[id];
+}
+
 /**
  * Filter the post items
  * @param {*} state 

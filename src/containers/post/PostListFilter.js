@@ -40,10 +40,10 @@ class PostListFilter extends Component {
         }
 
         return (
-            <div class="tabs-warp question-tab">
+            <div className="tabs-warp question-tab">
                 <PostFilter selectedId={sort} handleSelectedChange={this.handleSelectedChange} />
-                <div class="tab-inner-warp">
-                    <div class="tab-inner">
+                <div className="tab-inner-warp">
+                    <div className="tab-inner">
                         <PostList posts={posts} />
                     </div>
                 </div>

@@ -1,3 +1,3 @@
 import PostListFilter from './PostListFilter'
-
-export {PostListFilter};
+import PostDetailContainer from './PostDetailContainer'
+export {PostListFilter,PostDetailContainer};

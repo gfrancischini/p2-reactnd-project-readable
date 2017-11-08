@@ -35,7 +35,7 @@ export const TabBar = ({ children, selectedId, handleSelectedChange }) => {
         ));
 
     return (
-        <ul class="tabs">
+        <ul className="tabs">
             {
                 childrenWithProps
             }
