@@ -39,6 +39,7 @@ export class PostDetail extends Component {
             <div>
             <article className="question single-question question-type-normal">
                 <PostInner {...this.props.post} />
+                <div className="clearfix"></div>
             </article>
             {this.state.comments ? (<CommentList comments={this.state.comments} />) : (<div></div>)}
             <CommentAddEdit /> 

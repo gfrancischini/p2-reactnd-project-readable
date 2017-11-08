@@ -9,16 +9,11 @@ import { withRouter } from 'react-router-dom'
 class PostListFilter extends Component {
 
     componentDidMount = () => {
+        //retrive all posts from server
         this.props.loadPosts();
     }
 
-    componentWillReceiveProps(nextProps) {
-        console.log(JSON.stringify(nextProps));
-    }
-
     handleSelectedChange = (selectedId) => {
-        console.log("handleSelectedChange=" + selectedId);
-
         //update the browser url
 		this.props.history.push({
 			pathname: this.props.location.pathname,
@@ -28,8 +23,6 @@ class PostListFilter extends Component {
 
     render() {
         const { posts, sort, location, history } = this.props;
-
-        
 
         //TODO move this to a high order component: https://www.robinwieruch.de/gentle-introduction-higher-order-components/ 
         if (!posts) {
@@ -56,8 +49,7 @@ class PostListFilter extends Component {
 
 const mapStateToProps = (state, {location, history}) => {
     const params = new URLSearchParams(location.search);
-    const sort = params.get('sort');
-    console.log("sort=" + sort);
+    const sort = params.get('sort') ? params.get('sort') : 'Newest';
     const {posts} = state;
     return {
         posts : getFilteredPosts(state, sort),

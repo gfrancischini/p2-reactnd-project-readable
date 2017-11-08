@@ -1,6 +1,7 @@
+import {postFilterTabBarItems} from '../components/post/constants'
+
 const INITIAL_STATE = {
-    itemsById : null,
-    orderBy: "Newest"
+    itemsById : null
 }
 
 export const posts = (state = INITIAL_STATE, action) => {
@@ -13,11 +14,6 @@ export const posts = (state = INITIAL_STATE, action) => {
                 ...state,
                 itemsById
             } 
-        case "ORDER_POSTS_BY":
-            return {
-                ...state,
-                orderBy : action.orderBy
-            }
         default:
             return state
     }
@@ -54,7 +50,14 @@ export const getFilteredPosts = (state, orderBy) => {
         return true;
     });
 
-    //posts = orderBy(posts);
+    // find the selected tabbar item by id
+    const selectedTabBar = postFilterTabBarItems.find(item => {
+        return item.id == orderBy;
+    });
+
+    if(selectedTabBar != null) {
+        posts = selectedTabBar.orderBy(posts);
+    }
 
     return posts;
 }
