@@ -40,21 +40,34 @@ export const getAll = () => {
 
 
 export const getPost = (postId) =>
-fetch(`${api}/posts/${postId}`, { headers })
-  .then(res => res.json())
+    fetch(`${api}/posts/${postId}`, { headers })
+        .then(res => res.json())
 
 export const getAllCommentsFromPost = (postId) => {
-    console.log("getAllCommentsFromPost="+postId);
+    console.log("getAllCommentsFromPost=" + postId);
     return fetch(`${api}/posts/${postId}/comments`, { headers })
         .then(res => res.json())
 }
 
-export const addComment = (comment) =>
-    fetch(`${api}/comments`, {
+export const addComment = (comment) => {
+    const body = JSON.stringify({ ...comment })
+    return fetch(`${api}/comments`, {
         method: 'POST',
         headers: {
             ...headers,
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ ...comment })
-    }).then(res => res.json())
+        body
+    }).then(res => res.json());
+}
+
+export const addPost = (post) => {
+    const body = JSON.stringify(post);
+
+    return fetch(`${api}/posts/`, {
+        method: 'POST', headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        }, body
+    }).then(response => response.json());
+};

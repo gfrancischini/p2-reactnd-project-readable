@@ -6,7 +6,7 @@ export const PostInner = ({id, timestamp, title, body, author, category, voteSco
     return (
         <div>
             <h2>
-                <Link to={`/post/${id}`}>{title}</Link>
+                <Link to={`/post/${id}/view`}>{title}</Link>
             </h2>
             <a className="question-report" >{category}</a>
             

@@ -27,6 +27,9 @@ export const fetchPost = (id) => dispatch => (
     RestClientAPI.getPost(id).then(post => dispatch(receivePosts([post])))
 )
 
+export const createPost = (newPost) => dispatch => (
+    RestClientAPI.addPost(newPost).then(post => dispatch(receivePosts([post])))
+)
 
 
 
@@ -50,3 +53,6 @@ export const receiveComments = comments => ({
 export const fetchComments = (id) => dispatch => (
     RestClientAPI.getAllCommentsFromPost(id).then(comments => dispatch(receiveComments(comments)))
 )
+
+
+/****************************************************************************** */
