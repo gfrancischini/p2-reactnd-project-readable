@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import uuid from 'uuid-v4'
 
-import { createPost } from '../../actions'
+import { fetchPost, createPost, updatePost } from '../../actions'
 import { getPostById } from '../../reducers/posts'
 import { PostAddEdit } from '../../components/post'
 
@@ -17,12 +17,45 @@ class PostAddEditContainer extends Component {
         }
     }
 
-    
+    componentDidMount = () => {
+        this.props.loadPost(this.props.id);
+    }
 
-    render() {
-        const handleNewPostButtonClick = (title, body, category) => {
-            console.log("handleNewPostButtonClick")
-            const post = {
+
+    savePost(post) {
+        
+        this.props.createPost(post).then((action) => {
+            this.props.history.push(`/post/${post.id}/view`);
+        }, (error) => {
+            //TODO handle this. show a msg?
+            console.log("error=" + error);
+
+            this.setState({
+                error
+            });
+        });
+    }
+
+    updatePost(post) {
+        this.props.createPost(post).then((action) => {
+            this.props.history.push(`/post/${post.id}/view`);
+        }, (error) => {
+            //TODO handle this. show a msg?
+            console.log("error=" + error);
+
+            this.setState({
+                error
+            });
+        });
+    }
+
+    handleNewPostButtonClick = (title, body, category) => {
+        console.log("handleNewPostButtonClick");
+
+        //TODO improve this logic here
+        let post = this.props.post;
+        if(post == null) {
+            post = {
                 id: uuid(),
                 timestamp: Date.now(),
                 title: title,
@@ -31,30 +64,43 @@ class PostAddEditContainer extends Component {
                 category: category || 'react'
             };
 
-            const ret = this.props.createPost(post);
-            ret.then((action) => {
-                //this.setState(islo)
-                this.props.history.push(`/post/${post.id}/view`);
-            }, (error) => {
-                //TODO handle this. show a msg?
-                console.log("error=" + error);
-
-                this.setState({
-                    error
-                })
-            })
+            this.savePost(post);
         }
+        else {
+            post = {
+                ...post,
+                timestamp: Date.now(),
+                title: title,
+                body: body,
+                category: category
+            }
 
-        return (<PostAddEdit error={this.state.error} isProcessing={this.state.isProcessing} handleNewPostButtonClick={handleNewPostButtonClick} />)
+            this.updatePost(post);
+        }
+        
+    }
+
+    render() {
+        
+
+        return (<PostAddEdit post={this.props.post} error={this.state.error} isProcessing={this.state.isProcessing} handleNewPostButtonClick={this.handleNewPostButtonClick} />)
     }
 }
 
 const mapStateToProps = (state, { location, history, match }) => {
-    return {
+    const id = match.params.id;
+    const post = getPostById(state, id);
 
+    console.log("post="+post);
+    console.log("id="+id);
+    return {
+        post,
+        id,
     }
 }
 
 export default withRouter(connect(mapStateToProps, {
-    createPost: createPost
+    createPost: createPost,
+    updatePost: updatePost,
+    loadPost:fetchPost
 })(PostAddEditContainer))

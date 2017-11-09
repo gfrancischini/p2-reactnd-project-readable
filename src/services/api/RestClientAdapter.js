@@ -72,6 +72,18 @@ export const addPost = (post) => {
     }).then(response => response.json());
 };
 
+export const updatePost = (post) => {
+    const body = JSON.stringify(post);
+
+    return fetch(`${api}/posts/`, {
+        method: 'PUT', headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        }, body
+    }).then(response => response.json());
+};
+
+
 export const votePost = (id, option) => {
     const body = JSON.stringify({option});
 

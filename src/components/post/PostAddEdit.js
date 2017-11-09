@@ -14,6 +14,20 @@ export class PostAddEdit extends React.Component {
 			error: null
 		}
 	}
+	
+
+	componentWillReceiveProps(newProps) {
+		console.log("componentWillReceiveProps");
+		console.log(JSON.stringify(newProps.post));
+        if(newProps.post) {
+			this.setState({
+				title : newProps.post.title,
+				body: newProps.post.body,
+				category: newProps.post.category
+			})
+		}
+    }
+
 
 	handleTitleChange = (e) => {
 		this.setState({
@@ -80,7 +94,7 @@ export class PostAddEdit extends React.Component {
 						<div className="form-inputs clearfix">
 							<p>
 								<label className="required">Post Title<span>*</span></label>
-								<input onChange={this.handleTitleChange} type="text" id="question-title" />
+								<input onChange={this.handleTitleChange} type="text" id="question-title" value={this.state.title} />
 								<span className="form-description">Please choose an appropriate title for the post.</span>
 							</p>
 							<p>
@@ -98,7 +112,7 @@ export class PostAddEdit extends React.Component {
 						<div id="form-textarea">
 							<p>
 								<label className="required">Details<span>*</span></label>
-								<textarea onChange={this.handleBodyChange} id="question-details" aria-required="true" cols="58" rows="8"></textarea>
+								<textarea onChange={this.handleBodyChange} id="question-details" aria-required="true" cols="58" rows="8" value={this.state.body}/>
 								<span className="form-description">Type the description thoroughly and in detail .</span>
 							</p>
 						</div>
