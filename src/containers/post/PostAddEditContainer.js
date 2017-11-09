@@ -12,10 +12,12 @@ class PostAddEditContainer extends Component {
     constructor() {
         super();
         this.state = {
-            isLoading : false,
+            isProcessing : false,
             error : null
         }
     }
+
+    
 
     render() {
         const handleNewPostButtonClick = (title, body, category) => {
@@ -34,11 +36,16 @@ class PostAddEditContainer extends Component {
                 //this.setState(islo)
                 this.props.history.push(`/post/${post.id}/view`);
             }, (error) => {
+                //TODO handle this. show a msg?
                 console.log("error=" + error);
+
+                this.setState({
+                    error
+                })
             })
         }
 
-        return (<PostAddEdit handleNewPostButtonClick={handleNewPostButtonClick} />)
+        return (<PostAddEdit error={this.state.error} isProcessing={this.state.isProcessing} handleNewPostButtonClick={handleNewPostButtonClick} />)
     }
 }
 
