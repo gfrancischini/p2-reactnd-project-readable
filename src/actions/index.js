@@ -31,6 +31,9 @@ export const createPost = (newPost) => dispatch => (
     RestClientAPI.addPost(newPost).then(post => dispatch(receivePosts([post])))
 )
 
+export const votePost = (id, option) => dispatch =>  (
+    RestClientAPI.votePost(id, option).then(post => dispatch(receivePosts([post])))
+)
 
 
 /****************************************************************************** */

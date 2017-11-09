@@ -4,7 +4,7 @@ import { PostDetail } from '../../components/post'
 
 import { CommentAddEdit } from '../../components/comment'
 import { connect } from 'react-redux'
-import { fetchPost } from '../../actions'
+import { fetchPost, votePost } from '../../actions'
 import { withRouter } from 'react-router-dom'
 import { CommentSectionContainer} from '../comment'
 class PostDetailContainer extends Component {
@@ -13,14 +13,18 @@ class PostDetailContainer extends Component {
         this.props.loadPost(this.props.id);
     }
 
+    handlePostVote = (option) => {
+        this.props.votePost(this.props.id, option);
+    }
+
     render() {
         if(this.props.post == null) {
             return ("Loading");
         }
         return (
         <div>
-            <PostDetail post={this.props.post} />
-            <CommentSectionContainer parentId={this.props.post.id}/>
+            <PostDetail post={this.props.post} handleVoteClick={this.handlePostVote}/>
+            <CommentSectionContainer parentId={this.props.post.id} />
             <CommentAddEdit />
         </div>
         )
@@ -38,5 +42,6 @@ const mapStateToProps = (state, { location, history, match }) => {
 }
 
 export default withRouter(connect(mapStateToProps, {
-    loadPost: fetchPost
+    loadPost: fetchPost,
+    votePost : votePost
 })(PostDetailContainer))

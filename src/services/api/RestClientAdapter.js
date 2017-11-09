@@ -71,3 +71,14 @@ export const addPost = (post) => {
         }, body
     }).then(response => response.json());
 };
+
+export const votePost = (id, option) => {
+    const body = JSON.stringify({option});
+
+    return fetch(`${api}/posts/${id}`, {
+        method: 'POST', headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        }, body
+    }).then(response => response.json());
+};
