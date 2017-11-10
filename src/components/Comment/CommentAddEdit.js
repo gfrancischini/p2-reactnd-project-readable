@@ -5,41 +5,32 @@ import uuid from 'uuid-v4'
 export class CommentAddEdit extends Component {
     constructor(props) {
         super(props)
-        this.state = { text: '' } // You can also pass a Quill Delta here
-        this.handleChange = this.handleChange.bind(this)
+        this.state = { body: '' } 
     }
 
-    handleChange(e) {
-        this.setState({ text: e.target.value })
+    componentWillReceiveProps(newProps) {
+        if(newProps.body) {
+			this.setState({
+				body : newProps.body
+			})
+		}
+    }
+
+    handleChange = (e) => {
+        this.setState({ body: e.target.value })
     }
 
     handleAddComment = (e) => {
         e.preventDefault();
-        /**
-         * id: Any unique ID. As with posts, UUID is probably the best here.
-      timestamp: timestamp. Get this however you want.
-      body: String
-      author: String
-      parentId: Should match a post id in the database.
-         */
-        const comment = {
-            id: uuid(),
-            timestamp: 2,
-            body: this.state.text,
-            author: "Gabriel",
-            parentId: this.props.parentId,
-        }
+       
+        const body = this.state.body;
+        this.props.handleSaveComment(body);
 
+        //TODO: only clear the comment when we rcv a success response
+        //TODO: handle insert error
 
-        console.log("handleAddComment: ", JSON.stringify(comment));
+        this.setState({ body: ""});
 
-
-
-        RestClientAPI.addComment(comment).then((result) => {
-            console.log("getAllCommentsFromPost success: " + JSON.stringify(result));
-        }).catch((e) => {
-            console.log(e);
-        });
     }
 
     render() {
@@ -50,7 +41,7 @@ export class CommentAddEdit extends Component {
                     <div id="respond-textarea">
                         <p>
                             <label className="required" htmlFor="comment">Comment<span>*</span></label>
-                            <textarea id="comment" name="comment" value={this.state.text} onChange={this.handleChange} aria-required="true" cols="58" rows="8"></textarea>
+                            <textarea id="comment" name="comment" value={this.state.body} onChange={this.handleChange} aria-required="true" cols="58" rows="8"></textarea>
                         </p>
                     </div>
                     <p className="form-submit">

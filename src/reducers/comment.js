@@ -34,3 +34,16 @@ export const getCommentsByParentId = (state, parentId) => {
     
     return comments;
 }
+
+export const getCommentById = (state, id) => {
+    if(id == null) {
+        return null;
+    }
+
+    //when there is no loaded post we should try to load the specific one
+    if(state.comment.itemsById == null) {
+        return null;
+    }
+
+    return state.comment.itemsById[id];
+}

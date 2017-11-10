@@ -8,7 +8,7 @@ export class CommentSection extends Component {
         return (
             <div id="commentlist" className="page-content">
                 <div className="boxedtitle page-title"><h2>Comments ( <span className="color">{this.props.comments.length}</span> )</h2></div>
-                <CommentList comments={this.props.comments}/>
+                <CommentList parentId={this.props.parentId} comments={this.props.comments}/>
             </div>
         );
     }

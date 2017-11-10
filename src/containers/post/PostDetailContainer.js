@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { getPostById } from '../../reducers/posts'
-import { PostDetail } from '../../components/post'
-
-import { CommentAddEdit } from '../../components/comment'
 import { connect } from 'react-redux'
 import { fetchPost, votePost } from '../../actions'
 import { withRouter } from 'react-router-dom'
-import { CommentSectionContainer} from '../comment'
+
+import { getPostById } from '../../reducers/posts'
+import { PostDetail } from '../../components/post'
+import { CommentAddEditContainer, CommentSectionContainer } from '../comment'
+
 class PostDetailContainer extends Component {
 
     componentDidMount = () => {
@@ -25,7 +25,7 @@ class PostDetailContainer extends Component {
         <div>
             <PostDetail post={this.props.post} handleVoteClick={this.handlePostVote}/>
             <CommentSectionContainer parentId={this.props.post.id} />
-            <CommentAddEdit />
+            <CommentAddEditContainer  parentId={this.props.post.id}/>
         </div>
         )
     }

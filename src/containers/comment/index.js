@@ -1,3 +1,4 @@
 
 import CommentSectionContainer from './CommentSectionContainer'
-export {CommentSectionContainer};
+import CommentAddEditContainer from './CommentAddEditContainer'
+export {CommentSectionContainer, CommentAddEditContainer};

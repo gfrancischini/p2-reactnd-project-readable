@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 export class CommentItem extends Component {
     render() {
         //const { id, timestamp, body, author, voteScore, commentCount } = this.props.comment;
-        const {  body, author } = this.props.comment;
+        const {  body, author, timestamp } = this.props.comment;
         return (
                 <div>
                 <div className="comment-body comment-body-answered clearfix">
@@ -18,7 +18,7 @@ export class CommentItem extends Component {
                             </div>
                             <span className="question-vote-result">+1</span>
                             <div className="comment-meta">
-                                <div className="date"><i className="icon-time"></i>January 15 , 2014 at 10:00 pm</div>
+                                <div className="date"><i className="icon-time"></i>{timestamp}</div>
                             </div>
                             <a className="comment-reply"><i className="icon-reply"></i>Reply</a>
                         </div>

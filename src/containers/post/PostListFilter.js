@@ -30,19 +30,16 @@ class PostListFilter extends Component {
         if (!posts) {
             return <h1><i>Loading posts</i></h1>
         }
-        if (posts.length === 0) {
-            return <h1><i>There are no posts</i></h1>
-        }
+        const Posts = posts.length ? <PostList posts={posts} /> : <h1><i>There are no posts</i></h1>;
 
         return (
             <div className="tabs-warp question-tab">
                 <PostFilter selectedId={sort} handleSelectedChange={this.handleSelectedChange} />
                 <div className="tab-inner-warp">
                     <div className="tab-inner">
-                        <PostList posts={posts} />
+                        {Posts}
                     </div>
                 </div>
-                <div>You are now at {JSON.stringify(this.props.location)}</div>
             </div>
         )
     }

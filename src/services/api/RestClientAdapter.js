@@ -49,6 +49,11 @@ export const getAllCommentsFromPost = (postId) => {
         .then(res => res.json())
 }
 
+export const getComment = (id) => {
+    return fetch(`${api}/comments/${id}`, { headers })
+        .then(res => res.json())
+}
+
 export const addComment = (comment) => {
     const body = JSON.stringify({ ...comment })
     return fetch(`${api}/comments`, {

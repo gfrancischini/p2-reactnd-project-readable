@@ -58,10 +58,17 @@ export const receiveComments = comments => ({
  * Fetch all comments from a specif post
  * @param {*} id The id of the post to retrieve comments
  */
-export const fetchComments = (id) => dispatch => (
+export const fetchComments = (postId) => dispatch => (
+    RestClientAPI.getAllCommentsFromPost(postId).then(comments => dispatch(receiveComments(comments)))
+)
+
+export const fetchComment = (id) => dispatch => (
     RestClientAPI.getAllCommentsFromPost(id).then(comments => dispatch(receiveComments(comments)))
 )
 
+export const addComment = (comment) => dispatch => (
+    RestClientAPI.addComment(comment).then(comment => dispatch(receiveComments([comment])))
+)
 
 /****************************************************************************** */
 
