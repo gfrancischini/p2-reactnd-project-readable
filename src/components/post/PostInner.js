@@ -2,17 +2,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-export const PostInner = ({id, timestamp, title, body, author, category, voteScore, commentCount}) => {
+export const PostInner = ({ id, timestamp, title, body, author, category, voteScore, commentCount }) => {
     return (
         <div>
             <h2>
                 <Link to={`/post/${id}/view`}>{title}</Link>
             </h2>
             <a className="question-report" >{category}</a>
-            
+
             <div className="question-inner">
                 <div className="clearfix"></div>
-                <p style={{"whiteSpace": "pre-wrap"}} className="question-desc">{body}</p>
+                <p style={{ "whiteSpace": "pre-wrap" }} className="question-desc">{body}</p>
                 <div className="question-details">
                     <span className="question-favorite"><i className="icon-star"></i>{voteScore}</span>
                 </div>
@@ -20,6 +20,8 @@ export const PostInner = ({id, timestamp, title, body, author, category, voteSco
                 <span className="question-date"><i className="icon-time"></i>{timestamp}</span>
                 <span className="question-comment"><a><i className="icon-comment"></i>{commentCount} Comments</a></span>
                 <span className="question-view"><i className="icon-user"></i>70 views</span>
-                
-            </div></div>)
+                <span style={{ marginLeft: "20px" }} className="question-comment"><Link to={`/post/${id}/edit`}>Edit</Link></span>
+            </div>
+        </div>
+    )
 }
