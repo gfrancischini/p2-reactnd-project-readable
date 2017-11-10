@@ -83,6 +83,8 @@ export class PostAddEdit extends React.Component {
 			renderLoading = null;
 		}
 
+		const submitButtonTitle = this.props.idEdition ? "Save Your Post" : "Publish Your Post";
+
 		return (
 			<div className="page-content ask-question">
 				<div className="boxedtitle page-title"><h2>Create a Post</h2></div>
@@ -94,7 +96,7 @@ export class PostAddEdit extends React.Component {
 						<div className="form-inputs clearfix">
 							<p>
 								<label className="required">Post Title<span>*</span></label>
-								<input onChange={this.handleTitleChange} type="text" id="question-title" value={this.state.title} />
+								<input onChange={this.handleTitleChange} type="text" id="question-title" value={this.state.title || ''} />
 								<span className="form-description">Please choose an appropriate title for the post.</span>
 							</p>
 							<p>
@@ -112,14 +114,14 @@ export class PostAddEdit extends React.Component {
 						<div id="form-textarea">
 							<p>
 								<label className="required">Details<span>*</span></label>
-								<textarea onChange={this.handleBodyChange} id="question-details" aria-required="true" cols="58" rows="8" value={this.state.body}/>
+								<textarea style={{"whiteSpace": "pre-wrap"}} onChange={this.handleBodyChange} id="question-details" aria-required="true" cols="58" rows="8" value={this.state.body || ''}/>
 								<span className="form-description">Type the description thoroughly and in detail .</span>
 							</p>
 						</div>
 
 						{renderError}
 						<p className="form-submit">
-							<input disabled={this.props.isProcessing} onClick={this.handleNewPostButtonClick} type="submit" id="publish-question" value="Publish Your Post" className="button color small submit" />
+							<input disabled={this.props.isProcessing} onClick={this.handleNewPostButtonClick} type="submit" id="publish-question" value={submitButtonTitle} className="button color small submit" />
 						</p>
 					</form>
 				</div>

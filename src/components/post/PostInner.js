@@ -12,7 +12,7 @@ export const PostInner = ({id, timestamp, title, body, author, category, voteSco
             
             <div className="question-inner">
                 <div className="clearfix"></div>
-                <p className="question-desc">{body}</p>
+                <p style={{"whiteSpace": "pre-wrap"}} className="question-desc">{body}</p>
                 <div className="question-details">
                     <span className="question-favorite"><i className="icon-star"></i>{voteScore}</span>
                 </div>

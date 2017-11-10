@@ -12,8 +12,8 @@ class PostAddEditContainer extends Component {
     constructor() {
         super();
         this.state = {
-            isProcessing : false,
-            error : null
+            isProcessing: false,
+            error: null
         }
     }
 
@@ -23,7 +23,7 @@ class PostAddEditContainer extends Component {
 
 
     savePost(post) {
-        
+
         this.props.createPost(post).then((action) => {
             this.props.history.push(`/post/${post.id}/view`);
         }, (error) => {
@@ -54,7 +54,7 @@ class PostAddEditContainer extends Component {
 
         //TODO improve this logic here
         let post = this.props.post;
-        if(post == null) {
+        if (post == null) {
             post = {
                 id: uuid(),
                 timestamp: Date.now(),
@@ -77,13 +77,20 @@ class PostAddEditContainer extends Component {
 
             this.updatePost(post);
         }
-        
+
     }
 
     render() {
-        
 
-        return (<PostAddEdit post={this.props.post} error={this.state.error} isProcessing={this.state.isProcessing} handleNewPostButtonClick={this.handleNewPostButtonClick} />)
+
+        return (
+            <PostAddEdit
+                post={this.props.post}
+                error={this.state.error}
+                isProcessing={this.state.isProcessing}
+                idEdition={this.props.post != null}
+                handleNewPostButtonClick={this.handleNewPostButtonClick} />
+        )
     }
 }
 
@@ -91,8 +98,8 @@ const mapStateToProps = (state, { location, history, match }) => {
     const id = match.params.id;
     const post = getPostById(state, id);
 
-    console.log("post="+post);
-    console.log("id="+id);
+    console.log("post=" + post);
+    console.log("id=" + id);
     return {
         post,
         id,
@@ -102,5 +109,5 @@ const mapStateToProps = (state, { location, history, match }) => {
 export default withRouter(connect(mapStateToProps, {
     createPost: createPost,
     updatePost: updatePost,
-    loadPost:fetchPost
+    loadPost: fetchPost
 })(PostAddEditContainer))
