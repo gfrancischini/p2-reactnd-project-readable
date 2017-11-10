@@ -17,8 +17,6 @@ export class PostAddEdit extends React.Component {
 	
 
 	componentWillReceiveProps(newProps) {
-		console.log("componentWillReceiveProps");
-		console.log(JSON.stringify(newProps.post));
         if(newProps.post) {
 			this.setState({
 				title : newProps.post.title,

@@ -50,8 +50,6 @@ class PostAddEditContainer extends Component {
     }
 
     handleNewPostButtonClick = (title, body, category) => {
-        console.log("handleNewPostButtonClick");
-
         //TODO improve this logic here
         let post = this.props.post;
         if (post == null) {
@@ -98,8 +96,6 @@ const mapStateToProps = (state, { location, history, match }) => {
     const id = match.params.id;
     const post = getPostById(state, id);
 
-    console.log("post=" + post);
-    console.log("id=" + id);
     return {
         post,
         id,

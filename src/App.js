@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 
 import { PostListFilter, PostDetailContainer, PostAddEditContainer } from './containers/post'
-import { PostBar } from './components/post'
-import { Menu } from './components/menu'
-
+import {HeaderContainer} from './containers/header'
 
 
 class App extends Component {
@@ -16,7 +14,7 @@ class App extends Component {
                 
                 <div id="wrap" className="grid_1200">
 
-                <Menu/>
+                <HeaderContainer/>
                 
                     <br/>
                     <section className="container main-content">

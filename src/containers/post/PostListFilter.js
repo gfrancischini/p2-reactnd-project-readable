@@ -14,10 +14,12 @@ class PostListFilter extends Component {
     }
 
     handleSelectedChange = (selectedId) => {
+        const parsed = queryString.parse(this.props.location.search);
+        const search = queryString.stringify({...parsed, sort: selectedId });
         //update the browser url
 		this.props.history.push({
-			pathname: this.props.location.pathname,
-			search: queryString.stringify({ sort: selectedId })
+            pathname: this.props.location.pathname,
+			search
 		});
     }
 
@@ -50,9 +52,11 @@ class PostListFilter extends Component {
 const mapStateToProps = (state, {location, history}) => {
     const params = new URLSearchParams(location.search);
     const sort = params.get('sort') ? params.get('sort') : 'Newest';
+    const category = params.get('category') ? params.get('category') : null;
     return {
-        posts : getFilteredPosts(state, sort),
+        posts : getFilteredPosts(state, category, sort),
         sort,
+        category,
         location,
         history
     }

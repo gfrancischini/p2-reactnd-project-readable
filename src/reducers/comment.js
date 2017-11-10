@@ -3,7 +3,6 @@ const INITIAL_STATE = {
 }
 
 export const comment = (state = INITIAL_STATE, action) => {
-    console.log(action);
     switch (action.type) {
         case "RECEIVE_COMMENTS":
             const itemsById = action.comments

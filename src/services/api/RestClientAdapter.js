@@ -94,3 +94,10 @@ export const votePost = (id, option) => {
         }, body
     }).then(response => response.json());
 };
+
+
+export const getAllCategories = () => {
+    return fetch(`${api}/categories`, { headers })
+        .then(res => res.json())
+        .then(data => data.categories);
+}
