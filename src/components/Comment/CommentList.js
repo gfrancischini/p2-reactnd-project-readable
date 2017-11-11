@@ -10,7 +10,7 @@ export class CommentList extends Component {
                 {
                     this.props.comments.map(comment => (
                         <li className="comment" key={comment.id}>
-                            <CommentItem comment={comment} parentId={this.props.parentId} />
+                            <CommentItem comment={comment} parentId={this.props.parentId} handleVoteClick={this.props.handleVoteClick}/>
                         </li>
                     ))
                 }

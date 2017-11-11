@@ -101,6 +101,19 @@ export const votePost = (id, option) => {
 };
 
 
+export const voteComment = (id, option) => {
+    const body = JSON.stringify({option});
+
+    return fetch(`${api}/comments/${id}`, {
+        method: 'POST', headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        }, body
+    }).then(response => response.json());
+};
+
+
+
 export const getAllCategories = () => {
     return fetch(`${api}/categories`, { headers })
         .then(res => res.json())
