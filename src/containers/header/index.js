@@ -1,3 +1,4 @@
 
 import HeaderContainer from './HeaderContainer'
-export {HeaderContainer};
+import FooterContainer from './FooterContainer'
+export {HeaderContainer, FooterContainer};

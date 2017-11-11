@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 
 import { PostListFilter, PostDetailContainer, PostAddEditContainer } from './containers/post'
-import {HeaderContainer} from './containers/header'
+import { HeaderContainer, FooterContainer } from './containers/header'
 
 
 class App extends Component {
@@ -11,12 +11,10 @@ class App extends Component {
     render() {
         return (
             <div>
-                
                 <div id="wrap" className="grid_1200">
+                    <HeaderContainer />
 
-                <HeaderContainer/>
-                
-                    <br/>
+                    <br />
                     <section className="container main-content">
                         <div className="row">
                             <div className="col-md-9">
@@ -28,7 +26,7 @@ class App extends Component {
 
                             <aside className="col-md-3 sidebar">
                                 <div>
-                                    <Link to={`/post/new`}><span className="color button large publish-question" style={{color:'white', textAlign:'center', width:'100%'}}>Ask Now</span></Link>
+                                    <Link to={`/post/new`}><span className="color button large publish-question" style={{ color: 'white', textAlign: 'center', width: '100%' }}>Ask Now</span></Link>
                                 </div>
                                 <div className="widget widget_stats">
                                     <h3 className="widget_title">Stats</h3>
@@ -42,6 +40,7 @@ class App extends Component {
                             </aside>
                         </div>
                     </section>
+                    <FooterContainer/>
                 </div>
             </div>
 
