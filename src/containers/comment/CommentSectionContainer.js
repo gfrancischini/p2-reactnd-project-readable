@@ -16,11 +16,11 @@ class CommentSectionContainer extends Component {
     }
 
     render() {
-        return <CommentSection 
-        parentId={this.props.parentId} 
-        comments={this.props.comments}
-        handleVoteClick={this.handlePostVote}
-         />
+        return <CommentSection
+            parentId={this.props.parentId}
+            comments={this.props.comments}
+            handleVoteClick={this.handlePostVote}
+        />
     }
 }
 
@@ -34,5 +34,5 @@ const mapStateToProps = (state, { parentId }) => {
 
 export default withRouter(connect(mapStateToProps, {
     loadComments: fetchComments,
-    voteComment : voteComment
+    voteComment: voteComment
 })(CommentSectionContainer))

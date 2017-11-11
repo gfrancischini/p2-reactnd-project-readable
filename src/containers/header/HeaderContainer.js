@@ -19,7 +19,8 @@ class HeaderContainer extends Component {
                     <div className="logo"><Link to="/"><img alt="" src="/images/logo.png" /></Link></div>
                     <AppMenu categories={this.props.categories} />
                 </section>
-            </header>)
+            </header>
+        )
     }
 }
 

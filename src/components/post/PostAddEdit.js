@@ -14,17 +14,17 @@ export class PostAddEdit extends React.Component {
 			error: null
 		}
 	}
-	
+
 
 	componentWillReceiveProps(newProps) {
-        if(newProps.post) {
+		if (newProps.post) {
 			this.setState({
-				title : newProps.post.title,
+				title: newProps.post.title,
 				body: newProps.post.body,
 				category: newProps.post.category
 			})
 		}
-    }
+	}
 
 
 	handleTitleChange = (e) => {
@@ -77,7 +77,7 @@ export class PostAddEdit extends React.Component {
 		}
 
 		let renderLoading = null;
-		if(this.props.isProcessing) {
+		if (this.props.isProcessing) {
 			renderLoading = null;
 		}
 
@@ -112,7 +112,7 @@ export class PostAddEdit extends React.Component {
 						<div id="form-textarea">
 							<p>
 								<label className="required">Details<span>*</span></label>
-								<textarea style={{"whiteSpace": "pre-wrap"}} onChange={this.handleBodyChange} id="question-details" aria-required="true" cols="58" rows="8" value={this.state.body || ''}/>
+								<textarea style={{ "whiteSpace": "pre-wrap" }} onChange={this.handleBodyChange} id="question-details" aria-required="true" cols="58" rows="8" value={this.state.body || ''} />
 								<span className="form-description">Type the description thoroughly and in detail .</span>
 							</p>
 						</div>

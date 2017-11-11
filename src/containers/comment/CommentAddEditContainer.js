@@ -48,7 +48,7 @@ class CommentAddEditContainer extends Component {
 
     handleSaveComment = (body) => {
         let comment = this.props.comment;
-        if(comment) {
+        if (comment) {
             comment = {
                 ...comment,
                 timestamp: Date.now(),

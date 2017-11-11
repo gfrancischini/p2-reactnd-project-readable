@@ -1,34 +1,34 @@
-import {postFilterTabBarItems} from '../components/post/constants'
+import { postFilterTabBarItems } from '../components/post/constants'
 
 const INITIAL_STATE = {
-    itemsById : null
+    itemsById: null
 }
 
 export const posts = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case "RECEIVE_POSTS":
             const itemsById = action.posts
-                .reduce((posts, post) => (Object.assign(posts, {[post.id]: post})), state.itemById || {});
+                .reduce((posts, post) => (Object.assign(posts, { [post.id]: post })), state.itemById || {});
             return {
                 ...state,
                 itemsById
-            } 
+            }
         default:
             return state
     }
 }
 
 export const getPostById = (state, id) => {
-    if(id == null) {
+    if (id == null) {
         return null;
     }
 
     //when there is no loaded post we should try to load the specific one
-    if(state.posts.itemsById == null) {
+    if (state.posts.itemsById == null) {
         return null;
     }
 
-    
+
 
     return state.posts.itemsById[id];
 }
@@ -40,7 +40,7 @@ export const getPostById = (state, id) => {
  */
 export const getFilteredPosts = (state, category, orderBy) => {
     //when there is no loaded post we should return null
-    if(state.posts.itemsById == null) {
+    if (state.posts.itemsById == null) {
         return null;
     }
 
@@ -49,7 +49,7 @@ export const getFilteredPosts = (state, category, orderBy) => {
         return true;
     });
 
-    if(category) {
+    if (category) {
         posts = posts.filter(post => post.category === category);
     }
 
@@ -58,7 +58,7 @@ export const getFilteredPosts = (state, category, orderBy) => {
         return item.id === orderBy;
     });
 
-    if(selectedTabBar != null) {
+    if (selectedTabBar != null) {
         posts = selectedTabBar.orderBy(posts);
     }
 

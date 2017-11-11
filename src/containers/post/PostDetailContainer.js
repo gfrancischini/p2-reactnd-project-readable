@@ -18,15 +18,15 @@ class PostDetailContainer extends Component {
     }
 
     render() {
-        if(this.props.post == null) {
+        if (this.props.post == null) {
             return ("Loading");
         }
         return (
-        <div>
-            <PostDetail post={this.props.post} handleVoteClick={this.handlePostVote}/>
-            <CommentSectionContainer parentId={this.props.post.id} />
-            <CommentAddEditContainer  parentId={this.props.post.id}/>
-        </div>
+            <div>
+                <PostDetail post={this.props.post} handleVoteClick={this.handlePostVote} />
+                <CommentSectionContainer parentId={this.props.post.id} />
+                <CommentAddEditContainer parentId={this.props.post.id} />
+            </div>
         )
     }
 }
@@ -43,5 +43,5 @@ const mapStateToProps = (state, { location, history, match }) => {
 
 export default withRouter(connect(mapStateToProps, {
     loadPost: fetchPost,
-    votePost : votePost
+    votePost: votePost
 })(PostDetailContainer))

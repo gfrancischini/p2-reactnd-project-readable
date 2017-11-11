@@ -36,7 +36,7 @@ export const updatePost = (post) => dispatch => (
 )
 
 
-export const votePost = (id, option) => dispatch =>  (
+export const votePost = (id, option) => dispatch => (
     RestClientAPI.votePost(id, option).then(post => dispatch(receivePosts([post])))
 )
 
@@ -74,7 +74,7 @@ export const updateComment = (comment) => dispatch => (
     RestClientAPI.updateComment(comment).then(comment => dispatch(receiveComments([comment])))
 )
 
-export const voteComment = (id, option) => dispatch =>  (
+export const voteComment = (id, option) => dispatch => (
     RestClientAPI.voteComment(id, option).then(comment => dispatch(receiveComments([comment])))
 )
 
