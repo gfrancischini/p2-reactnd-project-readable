@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+
+import {getRandomInt, hashCode} from '../../Utils.js'
 export class CommentItem extends Component {
     render() {
         //const { id, timestamp, body, author, voteScore, commentCount } = this.props.comment;
         const { id, body, author, timestamp, voteScore } = this.props.comment;
+        const sex = hashCode(author) % 2 ? 'male' : 'female';
         return (
             <div>
                 <div className="comment-body comment-body-answered clearfix">
-                    <div className="avatar"><img alt="" src="http://placehold.it/60x60/FFF/444" /></div>
+                    <div className="avatar"><img alt="" src={`https://avatars.dicebear.com/v1/${sex}/${author}/80.png`} /></div>
                     <div className="comment-text">
                         <div className="author clearfix">
                             <div className="comment-author"><a >{author}</a></div>
@@ -25,6 +29,7 @@ export class CommentItem extends Component {
                         <div className="text"><p>{body}</p>
                         </div>
                         <div className="question-answered question-answered-done"><i className="icon-ok"></i>Best Answer</div>
+                        <div><Link to={`/comment/${id}/edit`}>Edit</Link></div>
                     </div>
                 </div>
             </div>

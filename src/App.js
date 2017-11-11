@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 
 import { PostListFilter, PostDetailContainer, PostAddEditContainer } from './containers/post'
+import { CommentAddEditContainer } from './containers/comment'
 import { HeaderContainer, FooterContainer } from './containers/header'
 
 
@@ -22,6 +23,7 @@ class App extends Component {
                                 <Route exact path="/post/:id/view" component={PostDetailContainer} />
                                 <Route exact path="/post/new" component={PostAddEditContainer} />
                                 <Route exact path="/post/:id/edit" component={PostAddEditContainer} />
+                                <Route exact path="/comment/:id/edit" component={CommentAddEditContainer} />
                             </div>
 
                             <aside className="col-md-3 sidebar">

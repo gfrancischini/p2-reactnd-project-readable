@@ -66,6 +66,20 @@ export const addComment = (comment) => {
     }).then(res => res.json());
 }
 
+export const updateComment = (comment) => {
+    const body = JSON.stringify(comment);
+
+    return fetch(`${api}/comments/${comment.id}`, {
+        method: 'PUT', headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        }, body
+    }).then(response => response.json());
+};
+
+
+
+
 export const addPost = (post) => {
     const body = JSON.stringify(post);
 
@@ -80,7 +94,7 @@ export const addPost = (post) => {
 export const updatePost = (post) => {
     const body = JSON.stringify(post);
 
-    return fetch(`${api}/posts/`, {
+    return fetch(`${api}/posts/${post.id}`, {
         method: 'PUT', headers: {
             ...headers,
             'Content-Type': 'application/json'

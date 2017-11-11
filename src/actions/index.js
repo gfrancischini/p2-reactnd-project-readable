@@ -70,6 +70,10 @@ export const addComment = (comment) => dispatch => (
     RestClientAPI.addComment(comment).then(comment => dispatch(receiveComments([comment])))
 )
 
+export const updateComment = (comment) => dispatch => (
+    RestClientAPI.updateComment(comment).then(comment => dispatch(receiveComments([comment])))
+)
+
 export const voteComment = (id, option) => dispatch =>  (
     RestClientAPI.voteComment(id, option).then(comment => dispatch(receiveComments([comment])))
 )

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import uuid from 'uuid-v4'
 
 import { CommentAddEdit } from '../../components/comment'
-import { addComment, fetchComment } from '../../actions'
+import { addComment, fetchComment, updateComment } from '../../actions'
 import { getCommentById } from '../../reducers/comment'
 
 class CommentAddEditContainer extends Component {
@@ -12,7 +12,7 @@ class CommentAddEditContainer extends Component {
     constructor() {
         super();
         this.state = {
-            error : null
+            error: null
         };
     }
 
@@ -20,18 +20,54 @@ class CommentAddEditContainer extends Component {
         this.props.loadComment();
     }
 
-    handleSaveComment = (body) => {
-        const comment = {
-            id: uuid(),
-            timestamp: Date.now(),
-            body: body,
-            author: "Gabriel",
-            parentId: this.props.parentId,
-        }
+    saveComment(comment) {
 
-        this.props.addComment(comment)
+        this.props.addComment(comment).then((action) => {
+        }, (error) => {
+            //TODO handle this. show a msg?
+            console.log("error=" + error);
+
+            this.setState({
+                error
+            });
+        });
     }
-    
+
+    updateComment(comment) {
+        this.props.updateComment(comment).then((action) => {
+            this.props.history.push(`/post/${comment.parentId}/view`);
+        }, (error) => {
+            //TODO handle this. show a msg?
+            console.log("error=" + error);
+
+            this.setState({
+                error
+            });
+        });
+    }
+
+    handleSaveComment = (body) => {
+        let comment = this.props.comment;
+        if(comment) {
+            comment = {
+                ...comment,
+                timestamp: Date.now(),
+                body: body,
+            }
+            this.updateComment(comment);
+        }
+        else {
+            comment = {
+                id: uuid(),
+                timestamp: Date.now(),
+                body: body,
+                author: "Gabriel",
+                parentId: this.props.parentId,
+            }
+            this.saveComment(comment);
+        }
+    }
+
 
     render() {
         return (
@@ -44,7 +80,7 @@ class CommentAddEditContainer extends Component {
     }
 }
 
-const mapStateToProps = (state, {parentId, location, history, match}) => {
+const mapStateToProps = (state, { parentId, location, history, match }) => {
     const id = match.params.id;
     const comment = getCommentById(state, id);
 
@@ -55,6 +91,7 @@ const mapStateToProps = (state, {parentId, location, history, match}) => {
     }
 }
 export default withRouter(connect(mapStateToProps, {
-    loadComment : fetchComment,
-    addComment: addComment
+    loadComment: fetchComment,
+    addComment: addComment,
+    updateComment: updateComment
 })(CommentAddEditContainer))
