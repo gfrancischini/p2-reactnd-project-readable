@@ -1,5 +1,8 @@
 import { postFilterTabBarItems } from 'components/Post'
 
+/**
+ * Return a Post that matches the id
+ */
 export const getPostById = (state, id) => {
     if (id == null) {
         return null;
@@ -10,15 +13,14 @@ export const getPostById = (state, id) => {
         return null;
     }
 
-
-
     return state.posts.itemsById[id];
 }
 
 /**
- * Filter the post items
+ * Filter and order the post items 
  * @param {*} state 
- * @param {*} orderBy 
+ * @param {*} category The category to filter the posts
+ * @param {*} orderBy The order by type to filter
  */
 export const getFilteredPosts = (state, category, orderBy) => {
     //when there is no loaded post we should return null

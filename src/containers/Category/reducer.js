@@ -2,6 +2,9 @@ const INITIAL_STATE = {
     itemsById: null
 }
 
+/**
+ * 
+ */
 export const category = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case "RECEIVE_CATEGORIES":

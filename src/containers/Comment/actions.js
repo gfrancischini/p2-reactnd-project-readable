@@ -19,18 +19,30 @@ export const fetchComments = (postId) => dispatch => (
     RestClientAPI.getAllCommentsFromPost(postId).then(comments => dispatch(receiveComments(comments)))
 )
 
+/**
+ * 
+ */
 export const fetchComment = (id) => dispatch => (
     RestClientAPI.getAllCommentsFromPost(id).then(comments => dispatch(receiveComments(comments)))
 )
 
+/**
+ * 
+ */
 export const addComment = (comment) => dispatch => (
     RestClientAPI.addComment(comment).then(comment => dispatch(receiveComments([comment])))
 )
 
+/**
+ * 
+ */
 export const updateComment = (comment) => dispatch => (
     RestClientAPI.updateComment(comment).then(comment => dispatch(receiveComments([comment])))
 )
 
+/**
+ * 
+ */
 export const voteComment = (id, option) => dispatch => (
     RestClientAPI.voteComment(id, option).then(comment => dispatch(receiveComments([comment])))
 )
