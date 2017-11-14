@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 
-import { PostListFilter, PostDetailContainer, PostAddEditContainer } from './containers/post'
+import { PostListFilterContainer, PostDetailContainer, PostAddEditContainer } from './containers/Post'
 import { CommentAddEditContainer } from './containers/Comment'
 import { HeaderContainer, FooterContainer } from './containers/header'
 
@@ -19,7 +19,7 @@ class App extends Component {
                     <section className="container main-content">
                         <div className="row">
                             <div className="col-md-9">
-                                <Route exact path="/" component={PostListFilter} />
+                                <Route exact path="/" component={PostListFilterContainer} />
                                 <Route exact path="/post/:id/view" component={PostDetailContainer} />
                                 <Route exact path="/post/new" component={PostAddEditContainer} />
                                 <Route exact path="/post/:id/edit" component={PostAddEditContainer} />

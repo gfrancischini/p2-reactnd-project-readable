@@ -1,4 +1,7 @@
-import PostListFilter from './PostListFilter'
-import PostDetailContainer from './PostDetailContainer'
-import PostAddEditContainer from './PostAddEditContainer'
-export { PostListFilter, PostDetailContainer, PostAddEditContainer };
+export { PostListFilterContainer } from './PostListFilterContainer'
+export { PostDetailContainer } from './PostDetailContainer'
+export { PostAddEditContainer } from './PostAddEditContainer'
+
+export * from './selectors'
+
+export { posts } from './reducer'

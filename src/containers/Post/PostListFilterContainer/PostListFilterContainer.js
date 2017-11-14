@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { PostList, PostFilter } from 'components/Post';
-import { fetchPosts } from '../../actions'
+import { fetchPosts } from 'actions'
 import { connect } from 'react-redux'
-import { getFilteredPosts } from '../../reducers/posts'
+import { getFilteredPosts } from '../selectors'
 import queryString from 'query-string';
 import { withRouter } from 'react-router-dom'
 
-class PostListFilter extends Component {
+class PostListFilterContainer1 extends Component {
 
     componentDidMount = () => {
         //retrive all posts from server
@@ -59,6 +59,6 @@ const mapStateToProps = (state, { location, history }) => {
     }
 }
 
-export default withRouter(connect(mapStateToProps, {
+export const PostListFilterContainer = withRouter(connect(mapStateToProps, {
     loadPosts: fetchPosts
-})(PostListFilter))
+})(PostListFilterContainer1))

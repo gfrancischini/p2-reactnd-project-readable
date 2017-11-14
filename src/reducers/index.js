@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { posts } from './posts'
+import { posts } from 'containers/Post'
 import { comment } from 'containers/Comment'
 import { category } from './category'
 const readableApp = combineReducers({

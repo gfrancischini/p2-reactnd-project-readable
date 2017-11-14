@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import { fetchPost, votePost } from 'actions'
 import { withRouter } from 'react-router-dom'
 
-import { getPostById } from 'reducers/posts'
+import { getPostById } from '../selectors'
 import { PostDetail } from 'components/Post'
 import { CommentAddEditContainer, CommentPanelContainer } from 'containers/Comment'
 
-class PostDetailContainer extends Component {
+class PostDetailContainer1 extends Component {
 
     componentDidMount = () => {
         this.props.loadPost(this.props.id);
@@ -41,7 +41,7 @@ const mapStateToProps = (state, { location, history, match }) => {
     }
 }
 
-export default withRouter(connect(mapStateToProps, {
+export const PostDetailContainer = withRouter(connect(mapStateToProps, {
     loadPost: fetchPost,
     votePost: votePost
-})(PostDetailContainer))
+})(PostDetailContainer1))
