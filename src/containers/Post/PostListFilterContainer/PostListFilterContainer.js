@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { PostList, PostFilter } from 'components/Post';
-import { fetchPosts } from 'actions'
+import { fetchPosts } from '../actions'
 import { connect } from 'react-redux'
 import { getFilteredPosts } from '../selectors'
 import queryString from 'query-string';

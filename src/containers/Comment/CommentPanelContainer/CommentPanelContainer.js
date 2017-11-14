@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getCommentsByParentId } from '../selectors'
 import { CommentPanel } from 'components/Comment'
 import { connect } from 'react-redux'
-import { fetchComments, voteComment } from 'actions'
+import { fetchComments, voteComment } from '../actions'
 import { withRouter } from 'react-router-dom'
 
 

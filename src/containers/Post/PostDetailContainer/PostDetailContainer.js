@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { fetchPost, votePost } from 'actions'
+import { fetchPost, votePost } from '../actions'
 import { withRouter } from 'react-router-dom'
 
 import { getPostById } from '../selectors'

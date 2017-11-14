@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { AppMenu } from 'components/header'
-import { fetchCategories } from 'actions'
-import { getCategories } from 'containers/Category'
+import { fetchCategories, getCategories } from 'containers/Category'
 
-import { Header} from 'components/App'
+import { Header } from 'components/App'
 
 class HeaderContainer1 extends Component {
 
@@ -28,6 +26,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-export const HeaderContainer =  connect(mapStateToProps, {
+export const HeaderContainer = connect(mapStateToProps, {
     loadCategories: fetchCategories
 })(HeaderContainer1)

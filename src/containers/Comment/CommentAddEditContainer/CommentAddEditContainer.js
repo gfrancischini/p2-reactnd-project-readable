@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import uuid from 'uuid-v4'
 
 import { CommentAddEdit } from 'components/Comment'
-import { addComment, fetchComment, updateComment } from 'actions'
+import { addComment, fetchComment, updateComment } from '../actions'
 import { getCommentById } from '../selectors'
 
 class CommentAddEditContainerUnwired extends Component {

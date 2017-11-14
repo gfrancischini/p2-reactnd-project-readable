@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import uuid from 'uuid-v4'
 
-import { fetchPost, createPost, updatePost } from 'actions'
+import { fetchPost, createPost, updatePost } from '../actions'
 import { getPostById } from '../selectors'
 import { PostAddEdit } from 'components/Post'
 
