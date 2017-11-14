@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import { posts } from './posts'
-import { comment } from './comment'
+import { comment } from 'containers/Comment'
 import { category } from './category'
 const readableApp = combineReducers({
     posts,
@@ -9,3 +9,4 @@ const readableApp = combineReducers({
 })
 
 export default readableApp;
+

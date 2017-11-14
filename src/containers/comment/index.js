@@ -1,4 +1,7 @@
 
-import CommentSectionContainer from './CommentSectionContainer'
-import CommentAddEditContainer from './CommentAddEditContainer'
-export { CommentSectionContainer, CommentAddEditContainer };
+export { CommentAddEditContainer } from './CommentAddEditContainer'
+export { CommentPanelContainer } from './CommentPanelContainer'
+
+export * from './selectors'
+
+export { comment } from './reducer'

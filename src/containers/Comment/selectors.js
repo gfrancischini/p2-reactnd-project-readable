@@ -1,22 +1,9 @@
-const INITIAL_STATE = {
-    itemsById: null
-}
 
-export const comment = (state = INITIAL_STATE, action) => {
-    switch (action.type) {
-        case "RECEIVE_COMMENTS":
-            const itemsById = action.comments
-                .reduce((comments, comment) => (Object.assign(comments, { [comment.id]: comment })), state.itemsById || {});
-            return {
-                ...state,
-                itemsById
-            }
-        default:
-            return state
-    }
-}
-
-
+/**
+ * 
+ * @param {*} state 
+ * @param {*} parentId 
+ */
 export const getCommentsByParentId = (state, parentId) => {
     if (parentId == null) {
         return null;
@@ -35,6 +22,11 @@ export const getCommentsByParentId = (state, parentId) => {
     return comments;
 }
 
+/**
+ * 
+ * @param {*} state 
+ * @param {*} id 
+ */
 export const getCommentById = (state, id) => {
     if (id == null) {
         return null;

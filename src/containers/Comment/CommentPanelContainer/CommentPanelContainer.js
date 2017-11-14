@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { getCommentsByParentId } from '../../reducers/comment'
-import { CommentPanel } from '../../components/Comment'
+import { getCommentsByParentId } from '../selectors'
+import { CommentPanel } from 'components/Comment'
 import { connect } from 'react-redux'
-import { fetchComments, voteComment } from '../../actions'
+import { fetchComments, voteComment } from 'actions'
 import { withRouter } from 'react-router-dom'
 
-class CommentSectionContainer extends Component {
+
+class CommentPanelContainerUnwired extends Component {
 
     componentDidMount = () => {
         this.props.loadComments(this.props.parentId);
@@ -32,7 +33,7 @@ const mapStateToProps = (state, { parentId }) => {
     }
 }
 
-export default withRouter(connect(mapStateToProps, {
+export const CommentPanelContainer = withRouter(connect(mapStateToProps, {
     loadComments: fetchComments,
     voteComment: voteComment
-})(CommentSectionContainer))
+})(CommentPanelContainerUnwired))

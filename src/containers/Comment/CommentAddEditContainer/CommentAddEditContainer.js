@@ -5,9 +5,9 @@ import uuid from 'uuid-v4'
 
 import { CommentAddEdit } from 'components/Comment'
 import { addComment, fetchComment, updateComment } from 'actions'
-import { getCommentById } from 'reducers/comment'
+import { getCommentById } from '../selectors'
 
-class CommentAddEditContainer extends Component {
+class CommentAddEditContainerUnwired extends Component {
 
     constructor() {
         super();
@@ -90,8 +90,8 @@ const mapStateToProps = (state, { parentId, location, history, match }) => {
         parentId
     }
 }
-export default withRouter(connect(mapStateToProps, {
+export const CommentAddEditContainer = withRouter(connect(mapStateToProps, {
     loadComment: fetchComment,
     addComment: addComment,
     updateComment: updateComment
-})(CommentAddEditContainer))
+})(CommentAddEditContainerUnwired))

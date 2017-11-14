@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 
 import { PostListFilter, PostDetailContainer, PostAddEditContainer } from './containers/post'
-import { CommentAddEditContainer } from './containers/comment'
+import { CommentAddEditContainer } from './containers/Comment'
 import { HeaderContainer, FooterContainer } from './containers/header'
 
 
@@ -42,7 +42,7 @@ class App extends Component {
                             </aside>
                         </div>
                     </section>
-                    <FooterContainer/>
+                    <FooterContainer />
                 </div>
             </div>
         )
