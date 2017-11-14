@@ -5,7 +5,7 @@ import uuid from 'uuid-v4'
 
 import { fetchPost, createPost, updatePost } from '../../actions'
 import { getPostById } from '../../reducers/posts'
-import { PostAddEdit } from '../../components/post'
+import { PostAddEdit } from 'components/Post'
 
 class PostAddEditContainer extends Component {
 

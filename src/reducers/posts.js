@@ -1,4 +1,4 @@
-import { postFilterTabBarItems } from '../components/post/constants'
+import { postFilterTabBarItems } from 'components/Post/constants'
 
 const INITIAL_STATE = {
     itemsById: null

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { PostList, PostFilter } from '../../components/post';
+import { PostList, PostFilter } from 'components/Post';
 import { fetchPosts } from '../../actions'
 import { connect } from 'react-redux'
-import {getFilteredPosts} from '../../reducers/posts'
+import { getFilteredPosts } from '../../reducers/posts'
 import queryString from 'query-string';
 import { withRouter } from 'react-router-dom'
 
@@ -15,12 +15,12 @@ class PostListFilter extends Component {
 
     handleSelectedChange = (selectedId) => {
         const parsed = queryString.parse(this.props.location.search);
-        const search = queryString.stringify({...parsed, sort: selectedId });
+        const search = queryString.stringify({ ...parsed, sort: selectedId });
         //update the browser url
-		this.props.history.push({
+        this.props.history.push({
             pathname: this.props.location.pathname,
-			search
-		});
+            search
+        });
     }
 
     render() {
@@ -46,12 +46,12 @@ class PostListFilter extends Component {
 }
 
 
-const mapStateToProps = (state, {location, history}) => {
+const mapStateToProps = (state, { location, history }) => {
     const params = new URLSearchParams(location.search);
     const sort = params.get('sort') ? params.get('sort') : 'Newest';
     const category = params.get('category') ? params.get('category') : null;
     return {
-        posts : getFilteredPosts(state, category, sort),
+        posts: getFilteredPosts(state, category, sort),
         sort,
         category,
         location,

@@ -1,6 +1,6 @@
 import React from 'react'
-import { postFilterTabBarItems } from './constants'
-import { TabBar, TabItem } from '../tabbar'
+import { postFilterTabBarItems } from '../constants'
+import { TabBar, TabItem } from 'components/TabBar'
 import PropTypes from 'prop-types';
 
 /**

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CommentItem } from './CommentItem';
+import { CommentItem } from '../CommentItem';
 export class CommentList extends Component {
     render() {
         if (this.props.comments == null) {

@@ -3,9 +3,9 @@ import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import uuid from 'uuid-v4'
 
-import { CommentAddEdit } from '../../components/comment'
-import { addComment, fetchComment, updateComment } from '../../actions'
-import { getCommentById } from '../../reducers/comment'
+import { CommentAddEdit } from 'components/Comment'
+import { addComment, fetchComment, updateComment } from 'actions'
+import { getCommentById } from 'reducers/comment'
 
 class CommentAddEditContainer extends Component {
 

@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-export const PostInner = ({ id, timestamp, title, body, author, category, voteScore, commentCount }) => {
+export const PostDetailPanel = ({ id, timestamp, title, body, author, category, voteScore, commentCount }) => {
     return (
         <div>
             <h2>

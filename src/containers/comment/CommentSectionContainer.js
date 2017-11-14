@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getCommentsByParentId } from '../../reducers/comment'
-import { CommentSection } from '../../components/comment'
+import { CommentPanel } from '../../components/Comment'
 import { connect } from 'react-redux'
 import { fetchComments, voteComment } from '../../actions'
 import { withRouter } from 'react-router-dom'
@@ -16,7 +16,7 @@ class CommentSectionContainer extends Component {
     }
 
     render() {
-        return <CommentSection
+        return <CommentPanel
             parentId={this.props.parentId}
             comments={this.props.comments}
             handleVoteClick={this.handlePostVote}

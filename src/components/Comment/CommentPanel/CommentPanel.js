@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { CommentList } from './CommentList';
-export class CommentSection extends Component {
+import { CommentList } from '../CommentList';
+export class CommentPanel extends Component {
     render() {
         if(this.props.comments == null) {
             return ("Loading");

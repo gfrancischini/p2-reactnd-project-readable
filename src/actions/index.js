@@ -1,4 +1,4 @@
-import * as RestClientAPI from '../services/api/RestClientAdapter'
+import * as RestClientAPI from 'services/api/RestClientAdapter'
 
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 

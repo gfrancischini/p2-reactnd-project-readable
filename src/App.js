@@ -45,7 +45,6 @@ class App extends Component {
                     <FooterContainer/>
                 </div>
             </div>
-
         )
     }
 }

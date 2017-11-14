@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
-import { getRandomInt, hashCode } from '../../Utils.js'
+import { getRandomInt, hashCode } from 'utils/Utils'
 export class CommentItem extends Component {
     render() {
         //const { id, timestamp, body, author, voteScore, commentCount } = this.props.comment;

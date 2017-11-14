@@ -4,7 +4,7 @@ import { fetchPost, votePost } from '../../actions'
 import { withRouter } from 'react-router-dom'
 
 import { getPostById } from '../../reducers/posts'
-import { PostDetail } from '../../components/post'
+import { PostDetail } from 'components/Post'
 import { CommentAddEditContainer, CommentSectionContainer } from '../comment'
 
 class PostDetailContainer extends Component {

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import * as RestClientAPI from '../../services/api/RestClientAdapter'
-import uuid from 'uuid-v4'
 
 export class CommentAddEdit extends Component {
     constructor(props) {

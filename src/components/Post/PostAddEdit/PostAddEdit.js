@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import { AlertBox } from '../common';
+import { AlertBox } from 'components/Common';
 
 
 export class PostAddEdit extends React.Component {
