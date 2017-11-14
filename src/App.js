@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom'
 
 import { PostListFilterContainer, PostDetailContainer, PostAddEditContainer } from './containers/Post'
 import { CommentAddEditContainer } from './containers/Comment'
-import { HeaderContainer, FooterContainer } from './containers/header'
+import { HeaderContainer, FooterContainer } from './containers/App'
 
 
 class App extends Component {

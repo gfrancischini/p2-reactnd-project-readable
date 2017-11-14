@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import { Menu, MenuItem } from '../menu'
+import { Menu, MenuItem } from 'components/Menu'
 
 export const AppMenu = ({ categories }) => (
     <Menu>

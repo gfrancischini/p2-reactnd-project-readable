@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
-class FooterContainer extends Component {
-    render() {
-        return (
-            <footer id="footer-bottom">
+export const Footer = () => {
+return (<footer id="footer-bottom">
                 <section className="container">
                     <div className="copyrights f_left">Copyright 2017 | <a href="https://github.com/gfrancischini">Gabriel Parelli Francischini</a></div>
                     <div className="social_icons f_right">
@@ -16,8 +14,6 @@ class FooterContainer extends Component {
                     </div>
                 </section>
             </footer>
-        )
-    }
-}
+)
 
-export default FooterContainer;
+}
