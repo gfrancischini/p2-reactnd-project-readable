@@ -1,6 +1,0 @@
-export { PostDetail } from './PostDetail'
-export { PostItem } from './PostItem'
-export { PostList } from './PostList'
-export { PostFilter } from './PostFilter'
-export { PostBar } from './PostBar'
-export { PostAddEdit } from './PostAddEdit'
