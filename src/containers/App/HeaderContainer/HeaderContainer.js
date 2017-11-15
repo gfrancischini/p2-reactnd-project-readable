@@ -14,7 +14,7 @@ class HeaderContainer1 extends Component {
 
     render() {
         return (
-            <Header />
+            <Header categories={this.props.categories} />
         )
     }
 }
