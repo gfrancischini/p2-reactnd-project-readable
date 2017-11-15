@@ -1,2 +1,5 @@
-export {HeaderContainer} from './HeaderContainer'
-export {FooterContainer} from './FooterContainer'
+export { HeaderContainer } from './HeaderContainer'
+export { FooterContainer } from './FooterContainer'
+export { MainContainer } from './MainContainer'
+export { ContentContainer } from './ContentContainer'
+export { SideBarContainer } from './SideBarContainer'
