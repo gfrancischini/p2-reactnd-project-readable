@@ -5,6 +5,7 @@ import uuid from 'uuid-v4'
 
 import { fetchPost, createPost, updatePost } from '../actions'
 import { getPostById } from '../selectors'
+import { getCategories } from 'containers/Category/selectors'
 import { PostAddEdit } from 'components/Post'
 
 class PostAddEditContainer1 extends Component {
@@ -84,6 +85,7 @@ class PostAddEditContainer1 extends Component {
         return (
             <PostAddEdit
                 post={this.props.post}
+                categories={this.props.categories}
                 error={this.state.error}
                 isProcessing={this.state.isProcessing}
                 idEdition={this.props.post != null}
@@ -95,9 +97,11 @@ class PostAddEditContainer1 extends Component {
 const mapStateToProps = (state, { location, history, match }) => {
     const id = match.params.id;
     const post = getPostById(state, id);
+    const categories = getCategories(state);
 
     return {
         post,
+        categories,
         id,
     }
 }

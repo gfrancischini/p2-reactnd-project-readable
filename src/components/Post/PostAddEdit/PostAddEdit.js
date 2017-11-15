@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import { AlertBox } from 'components/Common';
-
+import { PostCategorySelection } from './PostCategorySelection'
 
 export class PostAddEdit extends React.Component {
 
@@ -39,9 +39,10 @@ export class PostAddEdit extends React.Component {
 		});
 	}
 
-	handleCategoryChange = (e) => {
+	handleCategoryChange = (category) => {
+		console.log("handleCategoryChange= " + category);
 		this.setState({
-			category: e.target.value
+			category
 		});
 	}
 
@@ -81,6 +82,8 @@ export class PostAddEdit extends React.Component {
 			renderLoading = null;
 		}
 
+
+
 		const submitButtonTitle = this.props.idEdition ? "Save Your Post" : "Publish Your Post";
 
 		return (
@@ -100,11 +103,7 @@ export class PostAddEdit extends React.Component {
 							<p>
 								<label className="required">Category<span>*</span></label>
 								<span className="styled-select">
-									<select>
-										<option value="">Select a Category</option>
-										<option value="1">Category 1</option>
-										<option value="2">Category 2</option>
-									</select>
+									<PostCategorySelection categories={this.props.categories} handleCategoryChange={this.handleCategoryChange} />
 								</span>
 								<span className="form-description">Please choose the appropriate section so easily search for your post.</span>
 							</p>
