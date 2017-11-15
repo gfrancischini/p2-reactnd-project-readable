@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-export const PostCategorySelection = ({ categories, handleCategoryChange }) => {
+export const PostCategorySelection = ({ categories, currentCategory, handleCategoryChange }) => {
     if (categories == null) {
         return <span>No Category</span>
     }
@@ -12,7 +12,7 @@ export const PostCategorySelection = ({ categories, handleCategoryChange }) => {
             <option value="">Select a Category</option>
             {
                 categories.map((category => {
-                    return <option value={category.path}>{category.name}</option>
+                    return <option selected={category.path === currentCategory} value={category.path}>{category.name}</option>
                 }))
             }
         </select>

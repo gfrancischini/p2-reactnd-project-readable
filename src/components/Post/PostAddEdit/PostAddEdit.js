@@ -103,7 +103,9 @@ export class PostAddEdit extends React.Component {
 							<p>
 								<label className="required">Category<span>*</span></label>
 								<span className="styled-select">
-									<PostCategorySelection categories={this.props.categories} handleCategoryChange={this.handleCategoryChange} />
+									<PostCategorySelection categories={this.props.categories}
+										currentCategory={this.state.category}
+										handleCategoryChange={this.handleCategoryChange} />
 								</span>
 								<span className="form-description">Please choose the appropriate section so easily search for your post.</span>
 							</p>
