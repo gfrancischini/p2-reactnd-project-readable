@@ -11,20 +11,20 @@ export class PostDetail extends Component {
     render() {
         if (this.props.post == null) {
             return 'No Post'
-        } 
+        }
         return (
             <div>
-                
+
                 <article className="question question-type-normal">
                     <PostDetailPanel {...this.props.post} />
                     <div className="question-status">
-                    <div className="statscontainer">
-                    <button onClick={() => this.props.handleVoteClick("upVote")} className="question-vote-up" title="Like"></button>
-                    <div className="statscontainer status strong answered-accepted">
-                        <strong>{this.props.post.voteScore}</strong> votes
+                        <div className="statscontainer">
+                            <button onClick={() => this.props.handleVoteClick("upVote")} className="question-vote-up" title="Like"></button>
+                            <div className="statscontainer status strong answered-accepted">
+                                <strong>{this.props.post.voteScore}</strong> votes
                     </div>
-                    <button onClick={() => this.props.handleVoteClick("downVote")} className="question-vote-down" title="Dislike"></button>
-                </div>
+                            <button onClick={() => this.props.handleVoteClick("downVote")} className="question-vote-down" title="Dislike"></button>
+                        </div>
                     </div>
                     <div className="clearfix"></div>
                 </article>
