@@ -28,7 +28,6 @@ export class PostDetail extends Component {
                     </div>
                     <div className="clearfix"></div>
                 </article>
-                <div>You are now at {JSON.stringify(this.props.location)}</div>
             </div>
         );
     }
