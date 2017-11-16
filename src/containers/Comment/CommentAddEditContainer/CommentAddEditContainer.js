@@ -70,6 +70,7 @@ class CommentAddEditContainerUnwired extends Component {
 
 
     render() {
+        console.log("this.props.comment=" + JSON.stringify(this.props.comment));
         return (
             <CommentAddEdit comment={this.props.comment}
                 error={this.state.error}
@@ -83,7 +84,7 @@ class CommentAddEditContainerUnwired extends Component {
 const mapStateToProps = (state, { parentId, location, history, match }) => {
     const id = match.params.id;
     const comment = getCommentById(state, id);
-
+    console.log("comment=" + JSON.stringify(comment));
     return {
         comment,
         id,

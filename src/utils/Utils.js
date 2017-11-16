@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -12,4 +14,10 @@ export function hashCode(str) {
         hash = hash & hash; // Convert to 32bit integer
     }
     return hash;
+}
+
+
+
+export function formatTimestampToDate(timestamp) {
+    return moment(timestamp).format('LLLL');
 }

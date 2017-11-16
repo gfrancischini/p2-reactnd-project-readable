@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { AlertBox } from 'components/Common';
 
-export class CommentAddEdit extends Component {
-    constructor(props) {
-        super(props)
-        this.state = { body: '' } 
+export class CommentAddEdit extends React.Component {
+    constructor() {
+        super()
+        this.state = { body: '' }
     }
 
     componentWillReceiveProps(newProps) {
-        if(newProps.body) {
-			this.setState({
-				body : newProps.body
-			})
-		}
+        console.log("componentWillReceiveProps=" + newProps);
+        if (newProps.comment) {
+            this.setState({
+                body: newProps.comment.body
+            })
+        }
     }
 
     handleChange = (e) => {
@@ -20,18 +22,34 @@ export class CommentAddEdit extends Component {
 
     handleAddComment = (e) => {
         e.preventDefault();
-       
+
         const body = this.state.body;
+
+        const errors = [];
+        if (!body) {
+            errors.push("You must fill the comment.");
+        }
+
+        if (errors.length > 0) {
+            this.setState({ error: { title: "Please check the following errors:", messages: errors } });
+            return;
+        }
+
+
         this.props.handleSaveComment(body);
 
         //TODO: only clear the comment when we rcv a success response
         //TODO: handle insert error
 
-        this.setState({ body: ""});
-
+        this.setState({ body: "" });
     }
 
     render() {
+        let renderError = null;
+        if (this.state.error) {
+            renderError = <AlertBox type="error" title={this.state.error.title} messages={this.state.error.messages} />
+        }
+
         return (
             <div id="respond" className="comment-respond page-content clearfix">
                 <div className="boxedtitle page-title"><h2>Leave a reply</h2></div>
@@ -42,8 +60,9 @@ export class CommentAddEdit extends Component {
                             <textarea id="comment" name="comment" value={this.state.body} onChange={this.handleChange} aria-required="true" cols="58" rows="8"></textarea>
                         </p>
                     </div>
+                    {renderError}
                     <p className="form-submit">
-                        <input name="submit" type="submit" id="submit" value="Post your answer" className="button small color" onClick={this.handleAddComment} />
+                        <input name="submit" type="submit" id="submit" value="Submit your reply" className="button small color" onClick={this.handleAddComment} />
                     </p>
                 </form>
             </div>)

@@ -9,12 +9,21 @@ export class PostItem extends Component {
 		return (
 			<article className="question question-type-normal">
 				<PostDetailPanel {...this.props.post} />
-				<div className="question-author">
-					<a original-title="ahmed" className="question-author-img tooltip-n">
-						<span></span><img alt="User Avatar" src={`https://avatars.dicebear.com/v1/${sex}/${this.props.post.author}/80.png`} /></a>
+				<div className="question-status">
+					<div className="statscontainer">
+						<div className="statscontainer status strong answered-accepted">
+							<strong>{this.props.post.voteScore}</strong> votes
+                    </div>
+					</div>
+					<br />
+					<div className="statscontainer">
+						<div className="statscontainer status strong answered-accepted">
+							<strong>{this.props.post.commentCount}</strong> replies
+                    	</div>
+					</div>
 				</div>
 				<div className="clearfix"></div>
-			</article>
+			</article >
 		);
 	}
 }

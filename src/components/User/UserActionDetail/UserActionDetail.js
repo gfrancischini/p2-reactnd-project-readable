@@ -1,10 +1,12 @@
 import React from 'react';
+import { formatTimestampToDate } from 'utils/Utils'
 
 export const UserActionDetail = ({ author, avatarUrl, timestamp }) => {
+    const dateFormatted = formatTimestampToDate(timestamp);
     return (
         <div className="user-info owner">
             <div className="user-action-time">
-                asked <span title="2015-06-05 13:53:36Z" className="relativetime">{timestamp}</span>
+                asked <span title={timestamp} className="relativetime">{dateFormatted}</span>
             </div>
             <div style={{ "display": "flex" }}>
                 <div>
