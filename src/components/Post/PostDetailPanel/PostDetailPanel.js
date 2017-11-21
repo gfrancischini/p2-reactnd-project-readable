@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { UserActionDetail } from 'components/User'
 
-export const PostDetailPanel = ({ id, timestamp, title, body, author, authorAvatarUrl, category, voteScore, commentCount }) => {
+export const PostDetailPanel = ({ id, timestamp, title, body, author, authorAvatarUrl, category, voteScore, commentCount, editable, handlePostDelete }) => {
     return (
         <div>
             <h2>
@@ -17,7 +17,13 @@ export const PostDetailPanel = ({ id, timestamp, title, body, author, authorAvat
                 <p style={{ "whiteSpace": "pre-wrap" }} className="question-desc">{body}</p>
 
                 <div className="question-user-author">
-                    <span className="question-comment"><Link style={{ "text-align": "right", "width": "100%" }} to={`/post/${id}/edit`}>Edit</Link></span>
+                    {editable ?
+                        <span className="question-comment">
+                            <Link style={{ "text-align": "right", "width": "100%" }} to={`/post/${id}/edit`}>Edit</Link>
+                            <button onClick={handlePostDelete} style={{ "text-align": "right", "width": "100%" }}>Delete</button>
+                        </span>
+                        : null
+                    }
                     <div className="clearfix"></div>
                     <UserActionDetail author={author} timestamp={timestamp} avatarUrl={authorAvatarUrl} />
                 </div>
@@ -27,6 +33,6 @@ export const PostDetailPanel = ({ id, timestamp, title, body, author, authorAvat
 
 
 
-        </div>
+        </div >
     )
 }

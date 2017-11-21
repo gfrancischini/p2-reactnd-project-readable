@@ -47,3 +47,7 @@ export const updatePost = (post) => dispatch => (
 export const votePost = (id, option) => dispatch => (
     RestClientAPI.votePost(id, option).then(post => dispatch(receivePosts([post])))
 )
+
+export const deletePost = (post) => dispatch => (
+    RestClientAPI.deletePost(post.id).then(post => dispatch(receivePosts([post])))
+)

@@ -104,7 +104,7 @@ export const updatePost = (post) => {
 
 
 export const votePost = (id, option) => {
-    const body = JSON.stringify({option});
+    const body = JSON.stringify({ option });
 
     return fetch(`${api}/posts/${id}`, {
         method: 'POST', headers: {
@@ -114,9 +114,18 @@ export const votePost = (id, option) => {
     }).then(response => response.json());
 };
 
+export const deletePost = (id) => {
+    return fetch(`${api}/posts/${id}`, {
+        method: 'DELETE', headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        }
+    }).then(response => response.json());
+};
+
 
 export const voteComment = (id, option) => {
-    const body = JSON.stringify({option});
+    const body = JSON.stringify({ option });
 
     return fetch(`${api}/comments/${id}`, {
         method: 'POST', headers: {

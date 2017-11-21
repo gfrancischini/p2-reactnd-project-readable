@@ -17,7 +17,7 @@ export class PostDetail extends Component {
             <div>
 
                 <article className="question question-type-normal">
-                    <PostDetailPanel {...this.props.post} />
+                    <PostDetailPanel {...this.props.post} handlePostDelete={this.props.handlePostDelete} editable={this.props.editable} />
                     <div className="question-status">
                         <VoteScore voteScore={this.props.post.voteScore} editable={true} handleVoteClick={this.props.handleVoteClick} />
                     </div>

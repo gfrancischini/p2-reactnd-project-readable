@@ -13,6 +13,10 @@ export const getPostById = (state, id) => {
         return null;
     }
 
+    if (state.posts.itemsById[id] == null || state.posts.itemsById[id].deleted) {
+        return null;
+    }
+
     return state.posts.itemsById[id];
 }
 
@@ -30,7 +34,7 @@ export const getFilteredPosts = (state, category, orderBy) => {
 
     // filter the posts creating a array of filtered posts items
     let posts = Object.values(state.posts.itemsById).filter((post) => {
-        return true;
+        return post.deleted === false;
     });
 
     if (category) {
