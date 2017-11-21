@@ -23,7 +23,11 @@ export class CommentItem extends Component {
                         </div>
 
                         <div className="question-user-author">
-                            <span className="question-comment"><Link style={{ "text-align": "right", "width": "100%" }} to={`/comment/${id}/edit`}>Edit</Link></span>
+                            <span className="question-comment">
+                                <Link style={{ "text-align": "right", "width": "100%" }} to={`/comment/${id}/edit`}>Edit</Link>
+                                <button onClick={() => this.props.handleCommentDelete(id)} className="question-delete">Delete</button>
+                            </span>
+
                             <div className="clearfix"></div>
                             <UserActionDetail author={author} timestamp={timestamp} avatarUrl={"authorAvatarUrl"} />
                         </div>

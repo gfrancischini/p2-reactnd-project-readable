@@ -114,3 +114,22 @@
 .question-comment {
     width: 100%
 }
+
+.button-no-border {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+}
+
+.question-delete {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    text-align: right;
+    width: 100%;
+    font-size: 13px;
+    color: #2f3239;
+    padding: 0
+}

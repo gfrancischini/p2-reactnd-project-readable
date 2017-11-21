@@ -16,7 +16,7 @@ export const getCommentsByParentId = (state, parentId) => {
 
     // filter the comment creating a array of filtered comment items
     const comments = Object.values(state.comment.itemsById).filter((comment) => {
-        return comment.parentId === parentId
+        return comment.parentId === parentId && comment.deleted === false
     });
 
     return comments;

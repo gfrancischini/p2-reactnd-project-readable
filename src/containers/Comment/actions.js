@@ -46,3 +46,8 @@ export const updateComment = (comment) => dispatch => (
 export const voteComment = (id, option) => dispatch => (
     RestClientAPI.voteComment(id, option).then(comment => dispatch(receiveComments([comment])))
 )
+
+export const deleteComment = (id) => dispatch => (
+    RestClientAPI.deleteComment(id).then(comment => dispatch(receiveComments([comment])))
+)
+

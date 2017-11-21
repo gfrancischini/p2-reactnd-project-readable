@@ -20,7 +20,7 @@ export const PostDetailPanel = ({ id, timestamp, title, body, author, authorAvat
                     {editable ?
                         <span className="question-comment">
                             <Link style={{ "text-align": "right", "width": "100%" }} to={`/post/${id}/edit`}>Edit</Link>
-                            <button onClick={handlePostDelete} style={{ "text-align": "right", "width": "100%" }}>Delete</button>
+                            <button onClick={handlePostDelete} className="question-delete">Delete</button>
                         </span>
                         : null
                     }

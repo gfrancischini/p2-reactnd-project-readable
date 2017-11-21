@@ -77,6 +77,16 @@ export const updateComment = (comment) => {
     }).then(response => response.json());
 };
 
+export const deleteComment = (id) => {
+    return fetch(`${api}/comments/${id}`, {
+        method: 'DELETE', headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        }
+    }).then(response => response.json());
+};
+
+
 
 
 
