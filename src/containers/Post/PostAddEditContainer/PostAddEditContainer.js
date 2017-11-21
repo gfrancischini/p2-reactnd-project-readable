@@ -26,7 +26,7 @@ class PostAddEditContainer1 extends Component {
     savePost(post) {
 
         this.props.createPost(post).then((action) => {
-            this.props.history.push(`/post/${post.id}/view`);
+            this.props.history.push(`/post/${post.id}`);
         }, (error) => {
             //TODO handle this. show a msg?
             console.log("error=" + error);
@@ -39,7 +39,7 @@ class PostAddEditContainer1 extends Component {
 
     updatePost(post) {
         this.props.createPost(post).then((action) => {
-            this.props.history.push(`/post/${post.id}/view`);
+            this.props.history.push(`/post/${post.id}`);
         }, (error) => {
             //TODO handle this. show a msg?
             console.log("error=" + error);

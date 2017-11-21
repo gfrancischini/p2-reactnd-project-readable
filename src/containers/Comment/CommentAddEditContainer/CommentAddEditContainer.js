@@ -35,7 +35,7 @@ class CommentAddEditContainerUnwired extends Component {
 
     updateComment(comment) {
         this.props.updateComment(comment).then((action) => {
-            this.props.history.push(`/post/${comment.parentId}/view`);
+            this.props.history.push(`/post/${comment.parentId}`);
         }, (error) => {
             //TODO handle this. show a msg?
             console.log("error=" + error);
