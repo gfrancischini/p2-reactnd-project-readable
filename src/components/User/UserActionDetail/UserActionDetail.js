@@ -1,7 +1,9 @@
 import React from 'react';
-import { formatTimestampToDate } from 'utils/Utils'
+import { formatTimestampToDate, hashCode } from 'utils/Utils'
 
-export const UserActionDetail = ({ author, avatarUrl, timestamp }) => {
+export const UserActionDetail = ({ author, timestamp }) => {
+    const sex = hashCode(author) % 2 ? 'female' : 'male';
+    const avatarUrl = `https://avatars.dicebear.com/v1/${sex}/${author}/80.png`
     const dateFormatted = formatTimestampToDate(timestamp);
     return (
         <div className="user-info owner">

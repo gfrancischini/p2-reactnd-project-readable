@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { UserActionDetail } from 'components/User'
 
-export const PostDetailPanel = ({ id, timestamp, title, body, author, authorAvatarUrl, category, voteScore, commentCount, editable, handlePostDelete }) => {
+export const PostDetailPanel = ({ id, timestamp, title, body, author, category, voteScore, commentCount, editable, handlePostDelete }) => {
     return (
         <div>
             <h2>
@@ -25,7 +25,7 @@ export const PostDetailPanel = ({ id, timestamp, title, body, author, authorAvat
                         : null
                     }
                     <div className="clearfix"></div>
-                    <UserActionDetail author={author} timestamp={timestamp} avatarUrl={authorAvatarUrl} />
+                    <UserActionDetail author={author} timestamp={timestamp} />
                 </div>
                 <div className="clearfix"></div>
 

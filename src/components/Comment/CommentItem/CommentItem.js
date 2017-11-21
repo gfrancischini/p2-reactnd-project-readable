@@ -29,7 +29,7 @@ export class CommentItem extends Component {
                             </span>
 
                             <div className="clearfix"></div>
-                            <UserActionDetail author={author} timestamp={timestamp} avatarUrl={"authorAvatarUrl"} />
+                            <UserActionDetail author={author} timestamp={timestamp} />
                         </div>
                     </div>
                 </div>
