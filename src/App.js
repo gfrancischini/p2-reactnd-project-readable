@@ -13,6 +13,7 @@ class App extends React.Component {
         return (
             <MainContainer>
                 <Route exact path="/" component={PostListFilterContainer} />
+                <Route exact path="/:category" component={PostListFilterContainer} />
                 <Route exact path="/post/:id/view" component={PostDetailContainer} />
                 <Route exact path="/post/new" component={PostAddEditContainer} />
                 <Route exact path="/post/:id/edit" component={PostAddEditContainer} />

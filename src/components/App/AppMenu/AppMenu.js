@@ -10,7 +10,7 @@ export const AppMenu = ({ categories }) => (
         <MenuItem title="Categories" to="/" >
             {
                 categories ? categories.map((category) => {
-                    return <MenuItem title={category.name} to={`/?category=${category.path}`} />
+                    return <MenuItem title={category.name} to={`/${category.path}`} />
                 }) : null
             }
         </MenuItem>

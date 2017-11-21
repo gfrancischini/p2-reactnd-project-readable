@@ -46,10 +46,11 @@ class PostListFilterContainer1 extends Component {
 }
 
 
-const mapStateToProps = (state, { location, history }) => {
+const mapStateToProps = (state, { location, history, match }) => {
     const params = new URLSearchParams(location.search);
     const sort = params.get('sort') ? params.get('sort') : 'Newest';
-    const category = params.get('category') ? params.get('category') : null;
+    const category = match.params.category;
+
     return {
         posts: getFilteredPosts(state, category, sort),
         sort,
