@@ -18,7 +18,7 @@ class App extends React.Component {
             <MainContainer>
                 <Route exact path="/" component={PostListFilterContainer} />
                 <Route exact path="/login" component={LoginFormContainer} />
-                <Route exact path="/category/:category" component={PostListFilterContainer} />
+                <Route exact path="/:category" component={PostListFilterContainer} />
                 <Route exact path="/post/:id" component={PostDetailContainer} />
                 <ProtectedRoute exact path="/post/new" component={PostAddEditContainer} />
                 <ProtectedRoute exact path="/post/:id/edit" component={PostAddEditContainer} />
