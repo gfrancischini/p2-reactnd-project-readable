@@ -5,6 +5,8 @@ import { getRandomInt, hashCode } from 'utils/Utils'
 
 import { UserActionDetail } from 'components/User'
 
+import { VoteScore } from 'components/Common'
+
 export class CommentItem extends Component {
     render() {
         const { id, body, author, timestamp, voteScore } = this.props.comment;
@@ -13,13 +15,9 @@ export class CommentItem extends Component {
             <div>
                 <div className="comment-body comment-body-answered clearfix">
                     <div className="comment-text">
-                        <div className="statscontainer" style={{ float: "left" }}>
-                            <button onClick={() => this.props.handleVoteClick(id, "upVote")} className="question-vote-up" title="Like"></button>
-                            <div className="statscontainer status strong answered-accepted">
-                                <strong>{voteScore}</strong> votes
-                                </div>
-                            <button onClick={() => this.props.handleVoteClick(id, "downVote")} className="question-vote-down" title="Dislike"></button>
-                        </div>
+
+                        <VoteScore style={{ float: "left" }} voteScore={voteScore} editable={true} handleVoteClick={(type) => this.props.handleVoteClick(id, type)} />
+
                         <div className="text" style={{ marginLeft: "101px", marginBottom: "5px" }}>
                             <p>{body}</p>
                         </div>

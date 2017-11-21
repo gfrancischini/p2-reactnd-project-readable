@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { PostDetailPanel } from '../PostDetailPanel'
+import { VoteScore } from 'components/Common'
 export class PostDetail extends Component {
 
 
@@ -18,15 +19,9 @@ export class PostDetail extends Component {
                 <article className="question question-type-normal">
                     <PostDetailPanel {...this.props.post} />
                     <div className="question-status">
-                        <div className="statscontainer">
-                            <button onClick={() => this.props.handleVoteClick("upVote")} className="question-vote-up" title="Like"></button>
-                            <div className="statscontainer status strong answered-accepted">
-                                <strong>{this.props.post.voteScore}</strong> votes
+                        <VoteScore voteScore={this.props.post.voteScore} editable={true} handleVoteClick={this.props.handleVoteClick} />
                     </div>
-                            <button onClick={() => this.props.handleVoteClick("downVote")} className="question-vote-down" title="Dislike"></button>
-                        </div>
-                    </div>
-                    <div className="clearfix"></div>
+
                 </article>
             </div>
         );
