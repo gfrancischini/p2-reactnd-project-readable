@@ -1,5 +1,6 @@
 import React from 'react';
 import { AlertBox } from 'components/Common';
+import { Link } from 'react-router-dom'
 
 export class CommentAddEdit extends React.Component {
     constructor() {
@@ -61,9 +62,14 @@ export class CommentAddEdit extends React.Component {
                         </p>
                     </div>
                     {renderError}
-                    <p className="form-submit">
-                        <input name="submit" type="submit" id="submit" value="Submit your reply" className="button small color" onClick={this.handleAddComment} />
-                    </p>
+                    {this.props.isAuthenticated ?
+                        <p className="form-submit">
+                            <input name="submit" type="submit" id="submit" value="Submit your reply" className="button small color" onClick={this.handleAddComment} />
+                        </p>
+                        :
+                        <Link to="/login">You must be Logged in to post a comment</Link>
+                    }
+
                 </form>
             </div>)
     }

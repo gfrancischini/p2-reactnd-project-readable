@@ -7,6 +7,7 @@ import { fetchPost, createPost, updatePost } from '../actions'
 import { getPostById } from '../selectors'
 import { getCategories } from 'containers/Category/selectors'
 import { PostAddEdit } from 'components/Post'
+import { fakeAuth } from 'containers/Login'
 
 class PostAddEditContainer1 extends Component {
 
@@ -59,7 +60,7 @@ class PostAddEditContainer1 extends Component {
                 timestamp: Date.now(),
                 title: title,
                 body: body,
-                author: 'my self',
+                author: fakeAuth.user,
                 category: category || 'react'
             };
 

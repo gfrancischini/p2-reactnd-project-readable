@@ -36,7 +36,7 @@ class PostDetailContainer1 extends Component {
                     handleVoteClick={this.handlePostVote}
                     handlePostDelete={this.handlePostDelete} />
                 <CommentPanelContainer parentId={this.props.post.id} />
-                <CommentAddEditContainer parentId={this.props.post.id} />
+                <CommentAddEditContainer parentId={this.props.post.id} /> :
             </div>
         )
     }

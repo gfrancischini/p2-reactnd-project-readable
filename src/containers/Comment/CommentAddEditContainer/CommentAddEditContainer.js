@@ -6,6 +6,7 @@ import uuid from 'uuid-v4'
 import { CommentAddEdit } from 'components/Comment'
 import { addComment, fetchComment, updateComment } from '../actions'
 import { getCommentById } from '../selectors'
+import { fakeAuth } from 'containers/Login'
 
 class CommentAddEditContainerUnwired extends Component {
 
@@ -61,7 +62,7 @@ class CommentAddEditContainerUnwired extends Component {
                 id: uuid(),
                 timestamp: Date.now(),
                 body: body,
-                author: "Gabriel",
+                author: fakeAuth.user,
                 parentId: this.props.parentId,
             }
             this.saveComment(comment);
@@ -72,10 +73,13 @@ class CommentAddEditContainerUnwired extends Component {
     render() {
         console.log("this.props.comment=" + JSON.stringify(this.props.comment));
         return (
+
+
             <CommentAddEdit comment={this.props.comment}
                 error={this.state.error}
+                isAuthenticated={fakeAuth.isAuthenticated}
                 isProcessing={this.state.isProcessing}
-                idEdition={this.props.comment != null}
+                isEdition={this.props.comment != null}
                 handleSaveComment={this.handleSaveComment} />
         )
     }
