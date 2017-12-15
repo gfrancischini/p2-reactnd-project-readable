@@ -3,7 +3,7 @@ This project is the second deliverable for the [Udacity Nano Degree React Course
 
 ## Project
 
-This project consist of a website for posting and commenting about pre-registered subjects. This project does not implement the server side. You can find the server side [here]()
+This project consist of a website for posting and commenting about pre-registered subjects. This project does not implement the server side. You can find the server side [here](https://github.com/udacity/reactnd-project-readable-starter)
 
 
 ### Aditional Features
@@ -39,6 +39,9 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
+## Layout
+
+The layout was bought from [Theme Forest](https://themeforest.net/item/ask-me-responsive-questions-and-answers-template)
 
 ## Create React App
 
