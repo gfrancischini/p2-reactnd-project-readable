@@ -1,6 +1,4 @@
-
 import React from 'react';
-import { Link } from 'react-router-dom'
 
 export const PostCategorySelection = ({ categories, currentCategory, handleCategoryChange }) => {
     if (categories == null) {
@@ -12,7 +10,7 @@ export const PostCategorySelection = ({ categories, currentCategory, handleCateg
             <option value="">Select a Category</option>
             {
                 categories.map((category => {
-                    return <option selected={category.path === currentCategory} value={category.path}>{category.name}</option>
+                    return <option key={category.name} selected={category.path === currentCategory} value={category.path}>{category.name}</option>
                 }))
             }
         </select>

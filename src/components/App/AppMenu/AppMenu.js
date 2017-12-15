@@ -1,7 +1,6 @@
-
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import React from 'react';
 import { Menu, MenuItem } from 'components/Common/Menu'
+import { fakeAuth } from 'containers/Login'
 
 export const AppMenu = ({ categories }) => (
     <Menu>
@@ -10,10 +9,13 @@ export const AppMenu = ({ categories }) => (
         <MenuItem title="Categories" to="/" >
             {
                 categories ? categories.map((category) => {
-                    return <MenuItem title={category.name} to={`/${category.path}`} />
+                    return <MenuItem key={category.name} title={category.name} to={`/${category.path}`} />
                 }) : null
             }
         </MenuItem>
-        <MenuItem title="About" to="/post/new" />
+
+        {
+            fakeAuth.user ? <MenuItem title={`Hi, ${fakeAuth.user}`} to="/" /> : <MenuItem title="Login" to="/login" />
+        }
     </Menu>
 )

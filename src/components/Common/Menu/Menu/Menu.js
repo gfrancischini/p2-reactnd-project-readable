@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import React from 'react';
 
-export const Menu = ({children}) => (
+export const Menu = ({ children }) => (
     <nav className="navigation">
         <ul>
             {children.map(child => child)}

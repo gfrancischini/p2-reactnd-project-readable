@@ -1,15 +1,19 @@
-
 import React from 'react';
-import { Link } from 'react-router-dom'
 
-export const VoteScore = ({ voteScore, editable, handleVoteClick, style }) => {
+export const VoteScore = ({ voteScore, text, editable, applyColorStyle = true, handleVoteClick, style }) => {
 
     let colorClassName = 'none'
-    if (voteScore > 0) {
-        colorClassName = 'answered-accepted'
+    if (applyColorStyle) {
+        if (voteScore > 0) {
+            colorClassName = 'answered-accepted'
+        }
+        else if (voteScore < 0) {
+            colorClassName = 'answered-not-accepted'
+        }
     }
-    else if (voteScore < 0) {
-        colorClassName = 'answered-not-accepted'
+
+    if (!text) {
+        text = "votes"
     }
 
     return (
@@ -17,15 +21,15 @@ export const VoteScore = ({ voteScore, editable, handleVoteClick, style }) => {
             <div className="statscontainer">
                 {
                     editable ?
-                        <button onClick={() => handleVoteClick("upVote")} className="question-vote-up" title="Like"></button>
+                        <button onClick={() => handleVoteClick("upVote")} className="question-vote-up" title="Upvote"></button>
                         : null
                 }
                 <div className={"statscontainer status strong " + colorClassName}>
-                    <strong>{voteScore}</strong> votes
+                    <strong>{voteScore}</strong> {text}
                 </div>
                 {
                     editable ?
-                        <button onClick={() => handleVoteClick("downVote")} className="question-vote-down" title="Dislike"></button>
+                        <button onClick={() => handleVoteClick("downVote")} className="question-vote-down" title="Downvote"></button>
                         : null
                 }
             </div>

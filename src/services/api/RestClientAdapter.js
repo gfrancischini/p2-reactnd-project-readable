@@ -1,4 +1,3 @@
-
 const api = "http://127.0.0.1:3001"
 
 let token = localStorage.token
@@ -10,27 +9,6 @@ const headers = {
     'Accept': 'application/json',
     'Authorization': token
 }
-
-
-//TODO make it a rest client adapter
-class RestClientAdapter {
-    headers = null;
-
-    constructor() {
-        // Generate a unique token as the Authorization
-        let token = localStorage.token
-        if (!token)
-            token = localStorage.token = Math.random().toString(36).substr(-8)
-
-        this.headers = {
-            'Accept': 'application/json',
-            'Authorization': token
-        }
-
-    }
-
-}
-
 
 export const getAll = () => {
     console.log("getAll");

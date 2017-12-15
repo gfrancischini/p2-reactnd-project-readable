@@ -3,13 +3,13 @@ import { AlertBox } from 'components/Common';
 import { Link } from 'react-router-dom'
 
 export class CommentAddEdit extends React.Component {
-    constructor() {
-        super()
-        this.state = { body: '' }
+    constructor(props) {
+        super(props)
+        this.state = { body: props.comment ? props.comment.body : '' }
     }
 
     componentWillReceiveProps(newProps) {
-        console.log("componentWillReceiveProps=" + newProps);
+        console.log("componentWillReceiveProps=" + JSON.stringify(newProps));
         if (newProps.comment) {
             this.setState({
                 body: newProps.comment.body
@@ -54,23 +54,26 @@ export class CommentAddEdit extends React.Component {
         return (
             <div id="respond" className="comment-respond page-content clearfix">
                 <div className="boxedtitle page-title"><h2>Leave a reply</h2></div>
-                <form action="" method="post" id="commentform" className="comment-form">
-                    <div id="respond-textarea">
-                        <p>
-                            <label className="required" htmlFor="comment">Comment<span>*</span></label>
-                            <textarea id="comment" name="comment" value={this.state.body} onChange={this.handleChange} aria-required="true" cols="58" rows="8"></textarea>
-                        </p>
-                    </div>
-                    {renderError}
-                    {this.props.isAuthenticated ?
+
+                {this.props.isAuthenticated ?
+                    <form action="" method="post" id="commentform" className="comment-form">
+                        <div id="respond-textarea">
+                            <p>
+                                <label className="required" htmlFor="comment">Comment<span>*</span></label>
+                                <textarea id="comment" name="comment" value={this.state.body} onChange={this.handleChange} aria-required="true" cols="58" rows="8"></textarea>
+                            </p>
+                        </div>
+                        {renderError}
+
                         <p className="form-submit">
                             <input name="submit" type="submit" id="submit" value="Submit your reply" className="button small color" onClick={this.handleAddComment} />
                         </p>
-                        :
-                        <Link to="/login">You must be Logged in to post a comment</Link>
-                    }
+                    </form>
+                    :
+                    <Link to="/login">You must be Logged in to post a comment. Click here to login</Link>
+                }
 
-                </form>
+
             </div>)
     }
 }

@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-
-import { getRandomInt, hashCode } from 'utils/Utils'
-
 import { UserActionDetail } from 'components/User'
-
 import { VoteScore } from 'components/Common'
 
 export class CommentItem extends Component {
     render() {
         const { id, body, author, timestamp, voteScore } = this.props.comment;
-        const sex = hashCode(author) % 2 ? 'male' : 'female';
         return (
             <div>
                 <div className="comment-body comment-body-answered clearfix">
@@ -24,7 +19,7 @@ export class CommentItem extends Component {
 
                         <div className="question-user-author">
                             <span className="question-comment">
-                                <Link style={{ "text-align": "right", "width": "100%" }} to={`/comment/${id}/edit`}>Edit</Link>
+                                <Link style={{ "textAlign": "right", "width": "100%" }} to={`/comment/${id}/edit`}>Edit</Link>
                                 <button onClick={() => this.props.handleCommentDelete(id)} className="question-delete">Delete</button>
                             </span>
 

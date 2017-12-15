@@ -1,5 +1,3 @@
-import { postFilterTabBarItems } from 'components/Post/constants'
-
 const INITIAL_STATE = {
     itemsById: null
 }

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom'
 
@@ -19,7 +18,7 @@ export const PostDetailPanel = ({ id, timestamp, title, body, author, category, 
                 <div className="question-user-author">
                     {editable ?
                         <span className="question-comment">
-                            <Link style={{ "text-align": "right", "width": "100%" }} to={`/post/${id}/edit`}>Edit</Link>
+                            <Link style={{ "textAlign": "right", "width": "100%" }} to={`/post/${id}/edit`}>Edit</Link>
                             <button onClick={handlePostDelete} className="question-delete">Delete</button>
                         </span>
                         : null
@@ -28,11 +27,7 @@ export const PostDetailPanel = ({ id, timestamp, title, body, author, category, 
                     <UserActionDetail author={author} timestamp={timestamp} />
                 </div>
                 <div className="clearfix"></div>
-
             </div>
-
-
-
         </div >
     )
 }

@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-
 import { fetchCategories, getCategories } from 'containers/Category'
-
 import { Header } from 'components/App'
 
 class HeaderContainer1 extends Component {

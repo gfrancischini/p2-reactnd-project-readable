@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-//import { fetchPost, createPost, updatePost } from '../actions'
 import { getCategories } from '../selectors'
 import { CategoryStats } from 'components/Category'
 
@@ -16,7 +15,7 @@ class CategoryStatsContainer1 extends Component {
     }
 }
 
-const mapStateToProps = (state, { }) => {
+const mapStateToProps = (state) => {
     const categories = getCategories(state);
 
     return {

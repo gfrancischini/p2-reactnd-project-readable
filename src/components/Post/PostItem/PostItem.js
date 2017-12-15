@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { PostDetailPanel } from '../PostDetailPanel'
-import { getRandomInt, hashCode } from 'utils/Utils.js'
 import { VoteScore } from 'components/Common'
 
 export class PostItem extends Component {
 	render() {
-
-		const sex = hashCode(this.props.post.author) % 2 ? 'male' : 'female';
-
 		return (
 			<article className="question question-type-normal">
 				<PostDetailPanel {...this.props.post} />
@@ -18,7 +14,7 @@ export class PostItem extends Component {
 						<br />
 					</li>
 					<li>
-						<VoteScore voteScore={this.props.post.commentCount} editable={false} />
+						<VoteScore voteScore={this.props.post.commentCount} text="replies" applyColorStyle={false} editable={false} />
 					</li>
 				</ul>
 			</article >

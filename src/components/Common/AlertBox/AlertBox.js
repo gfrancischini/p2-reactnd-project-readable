@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 
 export const AlertBox = ({ type, title, messages }) => {
     let iconClassName = null;
@@ -14,11 +13,13 @@ export const AlertBox = ({ type, title, messages }) => {
             iconClassName = "icon-flag";
             divClassName = "error";
             break;
+        default:
+            break;
     }
 
 
     return (
-        <div className={`alert-message ${divClassName}`} style={{"margin": "0 auto"}}>
+        <div className={`alert-message ${divClassName}`} style={{ "margin": "0 auto" }}>
             <i className={iconClassName}></i>
             <p><span>{title}</span></p>
             <div style={{ "marginLeft": "57px" }}>

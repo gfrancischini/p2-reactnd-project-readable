@@ -77,13 +77,6 @@ export class PostAddEdit extends React.Component {
 			renderError = <AlertBox type="error" title={this.state.error.title} messages={this.state.error.messages} />
 		}
 
-		let renderLoading = null;
-		if (this.props.isProcessing) {
-			renderLoading = null;
-		}
-
-
-
 		const submitButtonTitle = this.props.idEdition ? "Save Your Post" : "Publish Your Post";
 
 		return (

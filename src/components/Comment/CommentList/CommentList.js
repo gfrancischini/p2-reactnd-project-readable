@@ -5,6 +5,9 @@ export class CommentList extends Component {
         if (this.props.comments == null) {
             return ("Loading");
         }
+        if (this.props.comments.length === 0) {
+            return (<div><span>There are no comments yet. Be the first!</span><br /><br /></div>);
+        }
         return (
             <ol className="commentlist ">
                 {
