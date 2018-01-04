@@ -3,14 +3,17 @@ import { PostDetailPanel } from '../PostDetailPanel'
 import { VoteScore } from 'components/Common'
 
 export class PostItem extends Component {
+
+
 	render() {
 		return (
 			<article className="question question-type-normal">
-				<PostDetailPanel {...this.props.post} />
+
+				<PostDetailPanel {...this.props.post} handlePostDelete={() => this.props.deletePost(this.props.post)} editable="true" />
 
 				<ul className="question-status">
 					<li>
-						<VoteScore voteScore={this.props.post.voteScore} editable={false} />
+						<VoteScore voteScore={this.props.post.voteScore} handleVoteClick={(option) => this.props.votePost(this.props.post, option)} editable={true} />
 						<br />
 					</li>
 					<li>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { PostList, PostFilter } from 'components/Post';
-import { fetchPosts } from '../actions'
+import { fetchPosts, votePost, deletePost } from '../actions'
 import { connect } from 'react-redux'
 import { getFilteredPosts } from '../selectors'
 import queryString from 'query-string';
@@ -23,6 +23,17 @@ class PostListFilterContainer1 extends Component {
         });
     }
 
+    handlePostVote = (post, option) => {
+        this.props.votePost(post.id, option);
+    }
+
+    handlePostDelete = (post) => {
+        console.log("handlePostDelete");
+        this.props.deletePost(post).then(() => {
+            this.props.history.push(`/`);
+        })
+    }
+
     render() {
         const { posts, sort } = this.props;
 
@@ -30,7 +41,8 @@ class PostListFilterContainer1 extends Component {
         if (!posts) {
             return <h1><i>Loading posts</i></h1>
         }
-        const Posts = posts.length ? <PostList posts={posts} /> : <h1><i>There are no posts</i></h1>;
+        const Posts = posts.length ? <PostList votePost={this.handlePostVote}
+            deletePost={this.handlePostDelete} posts={posts} /> : <h1><i>There are no posts</i></h1>;
 
         return (
             <div className="tabs-warp question-tab">
@@ -61,5 +73,7 @@ const mapStateToProps = (state, { location, history, match }) => {
 }
 
 export const PostListFilterContainer = withRouter(connect(mapStateToProps, {
-    loadPosts: fetchPosts
+    loadPosts: fetchPosts,
+    votePost: votePost,
+    deletePost: deletePost
 })(PostListFilterContainer1))

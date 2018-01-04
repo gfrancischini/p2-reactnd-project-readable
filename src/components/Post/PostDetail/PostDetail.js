@@ -3,12 +3,6 @@ import { PostDetailPanel } from '../PostDetailPanel'
 import { VoteScore } from 'components/Common'
 export class PostDetail extends Component {
 
-
-
-    calculateTimeDiff = () => {
-        return "7 hours";
-    }
-
     render() {
         if (this.props.post == null) {
             return 'No Post'

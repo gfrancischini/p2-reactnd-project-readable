@@ -18,6 +18,9 @@ This project consist of a website for posting and commenting about pre-registere
 
 In the project directory, you can run:
 
+### `npm install`
+This will install all the required dependencies
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
