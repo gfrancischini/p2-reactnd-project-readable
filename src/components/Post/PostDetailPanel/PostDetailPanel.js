@@ -7,7 +7,7 @@ export const PostDetailPanel = ({ id, timestamp, title, body, author, category, 
     return (
         <div>
             <h2>
-                <Link to={`/post/${id}`}>{title}</Link>
+                <Link to={`/${category}/${id}`}>{title}</Link>
             </h2>
             <a className="question-report" >{category}</a>
 

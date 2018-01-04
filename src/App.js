@@ -17,7 +17,7 @@ class App extends React.Component {
                     <Route exact path="/:category" component={PostListFilterContainer} />
                     <ProtectedRoute exact path="/post/new" component={PostAddEditContainer} />
                     <ProtectedRoute exact path="/post/:id/edit" component={PostAddEditContainer} />
-                    <Route exact path="/post/:id" component={PostDetailContainer} />
+                    <Route exact path="/:category/:id" component={PostDetailContainer} />
                     <ProtectedRoute exact path="/comment/:id/edit" component={CommentAddEditContainer} />
 
                 </Switch>
