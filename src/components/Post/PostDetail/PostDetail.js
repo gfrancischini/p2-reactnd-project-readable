@@ -1,25 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { PostDetailPanel } from '../PostDetailPanel'
 import { VoteScore } from 'components/Common'
-export class PostDetail extends Component {
 
-    render() {
-        if (this.props.post == null) {
-            return 'No Post'
-        }
-        return (
-            <div>
-
-                <article className="question question-type-normal">
-                    <PostDetailPanel {...this.props.post} handlePostDelete={this.props.handlePostDelete} editable={this.props.editable} />
-                    <div className="question-status">
-                        <VoteScore voteScore={this.props.post.voteScore} editable={true} handleVoteClick={this.props.handleVoteClick} />
-                    </div>
-
-                </article>
-            </div>
-        );
+export const PostDetail = (props) => {
+    if (props.post == null) {
+        return 'No Post'
     }
+    return (
+        <div>
+
+            <article className="question question-type-normal">
+                <PostDetailPanel {...props.post} handlePostDelete={props.handlePostDelete} editable={props.editable} />
+                <div className="question-status">
+                    <VoteScore voteScore={props.post.voteScore} editable={true} handleVoteClick={props.handleVoteClick} />
+                </div>
+
+            </article>
+        </div>
+    );
 }
 
 

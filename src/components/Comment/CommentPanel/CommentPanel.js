@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { CommentList } from '../CommentList';
-export class CommentPanel extends Component {
-    render() {
-        if (this.props.comments == null) {
-            return ("Loading");
-        }
-        return (
-            <div id="commentlist" className="page-content">
-                <div className="boxedtitle page-title"><h2>Comments ( <span className="color">{this.props.comments.length}</span> )</h2></div>
-                <CommentList parentId={this.props.parentId} comments={this.props.comments} handleCommentDelete={this.props.handleCommentDelete} handleVoteClick={this.props.handleVoteClick} />
-            </div>
-        );
+
+export const CommentPanel = (props) => {
+
+    if (props.comments == null) {
+        return ("Loading");
     }
+    return (
+        <div id="commentlist" className="page-content">
+            <div className="boxedtitle page-title"><h2>Comments ( <span className="color">{props.comments.length}</span> )</h2></div>
+            <CommentList parentId={props.parentId} comments={props.comments} handleCommentDelete={props.handleCommentDelete} handleVoteClick={props.handleVoteClick} />
+        </div>
+    );
 }

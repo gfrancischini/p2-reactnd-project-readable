@@ -6,24 +6,19 @@ import { PostListFilterContainer, PostDetailContainer, PostAddEditContainer } fr
 import { CommentAddEditContainer } from 'containers/Comment'
 import { LoginFormContainer } from 'containers/Login'
 
-class App extends React.Component {
+export const App = () => {
+    return (
+        <MainContainer>
+            <Switch>
+                <Route exact path="/" component={PostListFilterContainer} />
+                <Route exact path="/login" component={LoginFormContainer} />
+                <Route exact path="/:category" component={PostListFilterContainer} />
+                <ProtectedRoute exact path="/post/new" component={PostAddEditContainer} />
+                <ProtectedRoute exact path="/post/:id/edit" component={PostAddEditContainer} />
+                <Route exact path="/:category/:id" component={PostDetailContainer} />
+                <ProtectedRoute exact path="/comment/:id/edit" component={CommentAddEditContainer} />
 
-    render() {
-        return (
-            <MainContainer>
-                <Switch>
-                    <Route exact path="/" component={PostListFilterContainer} />
-                    <Route exact path="/login" component={LoginFormContainer} />
-                    <Route exact path="/:category" component={PostListFilterContainer} />
-                    <ProtectedRoute exact path="/post/new" component={PostAddEditContainer} />
-                    <ProtectedRoute exact path="/post/:id/edit" component={PostAddEditContainer} />
-                    <Route exact path="/:category/:id" component={PostDetailContainer} />
-                    <ProtectedRoute exact path="/comment/:id/edit" component={CommentAddEditContainer} />
-
-                </Switch>
-            </MainContainer>
-        )
-    }
+            </Switch>
+        </MainContainer>
+    )
 }
-
-export default App
