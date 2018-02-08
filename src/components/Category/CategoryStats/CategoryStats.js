@@ -19,5 +19,6 @@ export const CategoryStats = ({ categories }) => {
                     }
                 </ul>
             </div>
-        </div>)
+        </div>
+    )
 }

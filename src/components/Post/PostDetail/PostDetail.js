@@ -8,13 +8,11 @@ export const PostDetail = (props) => {
     }
     return (
         <div>
-
             <article className="question question-type-normal">
                 <PostDetailPanel {...props.post} handlePostDelete={props.handlePostDelete} editable={props.editable} />
                 <div className="question-status">
                     <VoteScore voteScore={props.post.voteScore} editable={true} handleVoteClick={props.handleVoteClick} />
                 </div>
-
             </article>
         </div>
     );

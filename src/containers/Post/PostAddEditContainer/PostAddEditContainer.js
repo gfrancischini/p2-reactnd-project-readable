@@ -15,15 +15,12 @@ class PostAddEditContainer1 extends Component {
         super();
         this.state = {
             isProcessing: false,
-            error: null,
-            isPostLoaded: false
+            error: null
         }
     }
 
     componentDidMount = () => {
-        this.props.loadPost(this.props.id).then(() => {
-            this.setState({ isPostLoaded: true })
-        });
+        this.props.loadPost(this.props.id);
     }
 
 
@@ -84,13 +81,6 @@ class PostAddEditContainer1 extends Component {
     }
 
     render() {
-        if (this.props.post == null && this.state.isPostLoaded) {
-            return ("This post does not exists");
-        }
-        else if (this.props.post == null) {
-            return ("Loading");
-        }
-
         return (
             <PostAddEdit
                 post={this.props.post}
