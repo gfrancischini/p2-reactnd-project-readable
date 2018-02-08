@@ -9,8 +9,15 @@ import { CommentAddEditContainer, CommentPanelContainer } from 'containers/Comme
 
 class PostDetailContainer1 extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = { isPostLoaded: false }
+    }
+
     componentDidMount = () => {
-        this.props.loadPost(this.props.id);
+        this.props.loadPost(this.props.id).then(() => {
+            this.setState({ isPostLoaded: true })
+        });
     }
 
     handlePostVote = (option) => {
@@ -25,7 +32,10 @@ class PostDetailContainer1 extends Component {
     }
 
     render() {
-        if (this.props.post == null) {
+        if (this.props.post == null && this.state.isPostLoaded) {
+            return ("This post does not exists");
+        }
+        else if (this.props.post == null) {
             return ("Loading");
         }
         return (
