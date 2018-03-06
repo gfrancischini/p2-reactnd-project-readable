@@ -2,8 +2,8 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom'
 import { MainContainer } from 'containers/App'
 import { ProtectedRoute } from 'containers/Route'
-import { PostListFilterContainer, PostDetailContainer, PostAddEditContainer } from 'containers/Post'
-import { CommentAddEditContainer } from 'containers/Comment'
+import { PostListFilterContainer, PostDetailContainer, PostAddEditContainer } from './containers/Post'
+import { CommentAddEditContainer } from './containers/Comment'
 import { LoginFormContainer } from 'containers/Login'
 
 export const App = () => {

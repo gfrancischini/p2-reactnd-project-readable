@@ -3,8 +3,8 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
 
 import { combineReducers } from 'redux'
-import { posts } from 'containers/Post'
-import { comment } from 'containers/Comment'
+import { posts } from './containers/Post'
+import { comment } from './containers/Comment'
 import { category } from 'containers/Category'
 
 
